@@ -48,7 +48,7 @@ function worldWork() {
   let currentFrame = 0;
 
   let speed = 1.0;
-  let boostedSpeed = 10.0;
+  let boostedSpeed = 4.0;
   let currentSpeed = speed;
   let isInsideWorldWork = false;
   let isScrolling = false;
