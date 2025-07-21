@@ -47,8 +47,8 @@ function worldWork() {
   const images = [];
   let currentFrame = 0;
 
-  let speed = 0.3;
-  let boostedSpeed = 2.0;
+  let speed = 1.0;
+  let boostedSpeed = 10.0;
   let currentSpeed = speed;
   let isInsideWorldWork = false;
   let isScrolling = false;
