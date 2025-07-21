@@ -1,0 +1,352 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Marquee Demo">
+    <div class="demo-container">
+        <h1 class="demo-title">GSAP Marquee Demo</h1>
+        <p class="demo-description">Interactive marquee examples with reverse options and speed controls</p>
+        
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h3>Marquee Controls</h3>
+            <div class="controls">
+                <button id="toggleBtn" class="control-btn">Pause All</button>
+                <button id="reverseBtn" class="control-btn">Reverse All</button>
+                <button id="resetBtn" class="control-btn">Reset</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSlider">Speed: <span id="speedValue">20</span></label>
+                <input type="range" id="speedSlider" min="5" max="100" value="20">
+            </div>
+        </div>
+        
+        <!-- Marquee Examples -->
+        <div class="marquee-examples">
+            <!-- Example 1: Forward -->
+            <div class="example-section">
+                <h4>Forward Direction (Default)</h4>
+                <div class="marquee-container" data-reverse="false" data-speed="20">
+                    <div class="marquee-track">
+                        <div class="marquee-content">
+                            <span>FORWARD ANIMATION</span>
+                            <span>LEFT TO RIGHT</span>
+                            <span>SMOOTH SCROLL</span>
+                            <span>CONTINUOUS LOOP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Example 2: Reverse -->
+            <div class="example-section">
+                <h4>Reverse Direction</h4>
+                <div class="marquee-container" data-reverse="true" data-speed="25">
+                    <div class="marquee-track">
+                        <div class="marquee-content">
+                            <span>REVERSE ANIMATION</span>
+                            <span>RIGHT TO LEFT</span>
+                            <span>BACKWARD SCROLL</span>
+                            <span>INVERTED LOOP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Example 3: Fast -->
+            <div class="example-section">
+                <h4>Fast Speed</h4>
+                <div class="marquee-container" data-reverse="false" data-speed="50">
+                    <div class="marquee-track">
+                        <div class="marquee-content">
+                            <span>HIGH SPEED</span>
+                            <span>FAST MOVEMENT</span>
+                            <span>QUICK ANIMATION</span>
+                            <span>RAPID SCROLL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Example 4: Slow -->
+            <div class="example-section">
+                <h4>Slow Speed</h4>
+                <div class="marquee-container" data-reverse="true" data-speed="10">
+                    <div class="marquee-track">
+                        <div class="marquee-content">
+                            <span>SLOW MOTION</span>
+                            <span>RELAXED PACE</span>
+                            <span>GENTLE MOVEMENT</span>
+                            <span>SMOOTH FLOW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Usage Instructions -->
+        <div class="usage-section">
+            <h3>How to Use</h3>
+            <div class="code-example">
+                <h4>HTML Structure:</h4>
+                <pre><code>&lt;div class="marquee-container" data-reverse="true" data-speed="25"&gt;
+    &lt;div class="marquee-track"&gt;
+        &lt;div class="marquee-content"&gt;
+            &lt;span&gt;Your text here&lt;/span&gt;
+            &lt;span&gt;More text&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <h4>Data Attributes:</h4>
+                <ul>
+                    <li><code>data-reverse="true"</code> - Reverse direction</li>
+                    <li><code>data-reverse="false"</code> - Forward direction (default)</li>
+                    <li><code>data-speed="20"</code> - Animation speed (higher = faster)</li>
+                </ul>
+                
+                <h4>JavaScript API:</h4>
+                <pre><code>// Get marquee instance
+const container = document.querySelector('.marquee-container');
+const marquee = container.marqueeInstance;
+
+// Control methods
+marquee.toggle();        // Pause/resume
+marquee.setSpeed(30);    // Change speed
+marquee.reverse();       // Reverse direction</code></pre>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .demo-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #000;
+        min-height: 100vh;
+    }
+    
+    .demo-title {
+        text-align: center;
+        color: #00ffff;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px #00ffff;
+    }
+    
+    .demo-description {
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        opacity: 0.8;
+    }
+    
+    .control-panel {
+        background: rgba(0, 255, 255, 0.1);
+        border: 1px solid #00ffff;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        backdrop-filter: blur(10px);
+    }
+    
+    .control-panel h3 {
+        color: #00ffff;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .controls {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .control-btn {
+        background: #00ffff;
+        color: #000;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .control-btn:hover {
+        background: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    }
+    
+    .speed-control {
+        text-align: center;
+    }
+    
+    .speed-control label {
+        color: #fff;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .speed-control input[type="range"] {
+        width: 200px;
+        height: 6px;
+        background: #333;
+        border-radius: 3px;
+        outline: none;
+        -webkit-appearance: none;
+    }
+    
+    .speed-control input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #00ffff;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 10px #00ffff;
+    }
+    
+    .marquee-examples {
+        margin-bottom: 3rem;
+    }
+    
+    .example-section {
+        margin-bottom: 2rem;
+    }
+    
+    .example-section h4 {
+        color: #00ffff;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+    
+    .usage-section {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .usage-section h3 {
+        color: #00ffff;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .code-example h4 {
+        color: #fff;
+        margin: 1.5rem 0 0.5rem 0;
+    }
+    
+    .code-example pre {
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 0.5rem 0 1rem 0;
+    }
+    
+    .code-example code {
+        color: #00ffff;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+    }
+    
+    .code-example ul {
+        color: #fff;
+        margin: 0.5rem 0 1rem 0;
+        padding-left: 1.5rem;
+    }
+    
+    .code-example li {
+        margin-bottom: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+        .demo-container {
+            padding: 1rem;
+        }
+        
+        .demo-title {
+            font-size: 2rem;
+        }
+        
+        .controls {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .control-btn {
+            width: 200px;
+        }
+    }
+</style>
+
+<script>
+    // Interactive controls for the demo
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('toggleBtn');
+        const reverseBtn = document.getElementById('reverseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const speedSlider = document.getElementById('speedSlider');
+        const speedValue = document.getElementById('speedValue');
+        
+        let isPaused = false;
+        
+        // Toggle pause/resume all marquees
+        toggleBtn.addEventListener('click', function() {
+            const containers = document.querySelectorAll('.marquee-container');
+            isPaused = !isPaused;
+            
+            containers.forEach(container => {
+                const element = container as any;
+                if (element.marqueeInstance) {
+                    element.marqueeInstance.toggle();
+                }
+            });
+            
+            toggleBtn.textContent = isPaused ? 'Resume All' : 'Pause All';
+        });
+        
+        // Reverse all marquees
+        reverseBtn.addEventListener('click', function() {
+            const containers = document.querySelectorAll('.marquee-container');
+            
+            containers.forEach(container => {
+                const element = container as any;
+                if (element.marqueeInstance) {
+                    element.marqueeInstance.reverse();
+                }
+            });
+        });
+        
+        // Reset all marquees
+        resetBtn.addEventListener('click', function() {
+            location.reload();
+        });
+        
+        // Speed control
+        speedSlider.addEventListener('input', function() {
+            const speed = (this as HTMLInputElement).value;
+            speedValue.textContent = speed;
+            
+            const containers = document.querySelectorAll('.marquee-container');
+            containers.forEach(container => {
+                const element = container as any;
+                if (element.marqueeInstance) {
+                    element.marqueeInstance.setSpeed(parseInt(speed));
+                }
+            });
+        });
+    });
+</script> 

@@ -1,0 +1,26 @@
+.header {
+    .navigation {
+        .navigation-item {
+           > a.navigation-link {
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 0px;
+                    height: 3px;
+                    background-color: #BADF01;
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    transition: width 0.3s ease-in-out;
+                }
+                &:hover,
+                &.current-page {
+                    &:after {
+                        width: 40px;
+                    }
+                }
+           }
+        }
+    }
+}

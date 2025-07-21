@@ -1,29 +1,150 @@
 @font-face {
-  font-family: 'SVN-Gilroy';
-  src: url('../fonts/SVN-GilroyXBold.woff2') format('woff2'),
-      url('../fonts/SVN-GilroyXBold.woff') format('woff');
-  font-weight: 700;
+  font-family: 'HelveticaNowDisplay';
+  src: url('../fonts/HelveticaNowDisplay-Bold.woff2') format('woff2'),
+      url('../fonts/HelveticaNowDisplay-Bold.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SVN-Gilroy';
-  src: url('../fonts/SVN-Gilroy.woff2') format('woff2'),
-      url('../fonts/SVN-Gilroy.woff') format('woff');
+  font-family: 'HelveticaNowDisplay';
+  src: url('../fonts/HelveticaNowDisplay-Regular.woff2') format('woff2'),
+      url('../fonts/HelveticaNowDisplay-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Black.woff2') format('woff2'),
-      url('../fonts/Poppins-Black.woff') format('woff');
-  font-weight: 900;
+  font-family: 'HelveticaNowDisplay';
+  src: url('../fonts/HelveticaNowDisplay-Medium.woff2') format('woff2'),
+      url('../fonts/HelveticaNowDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowMicro';
+  src: url('../fonts/HelveticaNowMicro-Medium.woff2') format('woff2'),
+      url('../fonts/HelveticaNowMicro-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowMicro';
+  src: url('../fonts/HelveticaNowMicro-Regular.woff2') format('woff2'),
+      url('../fonts/HelveticaNowMicro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowMicro';
+  src: url('../fonts/HelveticaNowMicro-Bold.woff2') format('woff2'),
+      url('../fonts/HelveticaNowMicro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url('../fonts/HelveticaNowText-Regular.woff2') format('woff2'),
+      url('../fonts/HelveticaNowText-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url('../fonts/HelveticaNowText-Medium.woff2') format('woff2'),
+      url('../fonts/HelveticaNowText-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url('../fonts/HelveticaNowText-Bold.woff2') format('woff2'),
+      url('../fonts/HelveticaNowText-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anton';
+  src: url('../fonts/Anton.woff2') format('woff2'),
+      url('../fonts/Anton.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?u5160t');
+  src:  url('../fonts/icomoon.eot?u5160t#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?u5160t') format('truetype'),
+    url('../fonts/icomoon.woff?u5160t') format('woff'),
+    url('../fonts/icomoon.svg?u5160t#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'SharpGroteskPE';
+  src: url('../fonts/SharpGroteskPETrialBook-15.woff2') format('woff2'),
+      url('../fonts/SharpGroteskPETrialBook-15.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SharpGroteskPE';
+  src: url('../fonts/SharpGroteskPETrialBookItl-12.woff2') format('woff2'),
+      url('../fonts/SharpGroteskPETrialBookItl-12.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText';
+  src: url('../fonts/HelveticaNowText-Light.woff2') format('woff2'),
+      url('../fonts/HelveticaNowText-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-up:before {
+  content: "\e900";
+}
 

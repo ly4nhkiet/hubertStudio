@@ -1,0 +1,162 @@
+@import './global/header.scss';
+@import './global/footer.scss';
+@import './components/worldWork.scss';
+@import './components/testimonial.scss';
+
+body {
+    background-color: #000;
+    font-family: 'HelveticaNowDisplay', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    font-display: swap;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    font-weight: 400;
+    min-height: 100vh;
+}
+.bg-section {
+    background: linear-gradient(0deg, #4F5963 0%, #080809 100%), linear-gradient(0deg, #000 0%, #000 100%);
+
+}
+.hubert-about-us {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-image: url('/images/patent.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+.btn {
+    &-default {
+        background-color: transparent;
+        border-radius: 50px;
+        border: 1px solid #606060;
+        height: 36.167px;
+        color: #fff;
+        font-family: 'HelveticaNowText', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+    &-full {
+        width: 100%;
+    }
+}
+
+.hubert-s4 {
+    background-image: url('/images/hubert-s4.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    background-attachment: fixed;
+    .heading-title {
+        font-family: 'HelveticaNowDisplay', sans-serif;
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 1.2;
+        padding-left: 80px;
+    }
+    .list-hubert-s4 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 30px;
+        margin-top: 60px;
+        li {
+            position: relative;
+            display: flex;
+            gap: 29px;
+            align-items: flex-start;
+            @for $i from 1 through 9 {
+                &:nth-child(#{$i}) {
+                    &:before {
+                        content: '0' + $i;
+                        color: #BADF01;
+                        font-family: 'SharpGroteskPE', sans-serif;
+                        font-size: 92.08px;
+                        text-decoration: underline;
+                        line-height: 100%; /* 25px */
+                        font-weight: 400;
+                        font-style: italic;
+                        line-height: 100%;
+                    }
+                }
+            }
+            h4 {
+                color: #FFF;
+                font-family: 'HelveticaNowDisplay', sans-serif;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 100%; /* 25px */
+                letter-spacing: -0.5px;
+                margin: 0 0 15px;
+            }
+            p {
+                color: #FFF;
+                font-family: "HelveticaNowText", sans-serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
+.hubert-marquee {
+    width: 100%;
+  overflow: hidden;
+  background: #BADF01; /* màu giống ảnh bạn gửi */
+  padding: 10px 0;
+  white-space: nowrap;
+  .marquee-track {
+        display: flex;
+        width: max-content;
+    }
+
+    .marquee-content {
+        display: inline-flex;
+        font-family: 'Impact', sans-serif;
+        font-size: 41.858px;
+        font-style: italic;
+        text-transform: uppercase;
+        animation: none;
+        white-space: nowrap;
+        color: #000;
+        span {
+            &:after {
+                content: '•';
+                margin: 0 25px;
+            }
+            &.white {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.char {
+    display: inline-block;
+    will-change: transform, opacity;
+  }

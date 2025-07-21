@@ -7,7 +7,7 @@ module.exports = {
 			center: true,
 			padding: "1rem",
 			screens: {
-				'2xl': '1320px',
+				'2xl': '1332px',
 			},
 		},
 		extend: {
@@ -23,6 +23,14 @@ module.exports = {
 				'gray-dark': '#5C5C5C',
 				'gray-white': '#F6F6F7',
 				'gradient-banner': 'linear-gradient(180deg, rgba(33, 37, 41, 0.00) 0%, rgba(33, 37, 41, 0.75) 54%, rgba(33, 37, 41, 0.94) 77.09%, #212529 100%)'
+			},
+			fontFamily: {
+				'sans': ['HelveticaNowDisplay', 'sans-serif'],
+				'micro': ['HelveticaNowMicro', 'sans-serif'],
+				'text': ['HelveticaNowText', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+				'anton': ['Anton', 'sans-serif'],
+				'book': ['SharpGroteskPE', 'sans-serif'],
 			},
 		}
 	},

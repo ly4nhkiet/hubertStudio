@@ -1,7 +1,268 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import WorldWork from '../components/sections/worldWork.astro';
 ---
 
-<Layout title="title">
-  
+<Layout title="Homepage">
+    <WorldWork />
+    <section class="border-t-[#BADF01] border-t-[20px] hubert-about-us pt-20 pb-16 bg-white">
+        <div class="container relative z-10">
+            <div class="grid grid-cols-1 text-5xl font-bold text-white gap-2">
+                <div class="col-span-1 text-right">
+                    <p class="animate-text-about-us"> Born from the love of gaming, powered by </p>
+                </div>
+                <div class="col-span-1">
+                    <p class="animate-text-about-us">creative minds, gaming hearts, and brand brains.</p>
+                </div>
+               
+            </div>
+            <div class="mt-16 relative">
+                <div class="box-content absolute top-0 left-0 max-w-[365px] p-[21px] px-[30px] pb-[29px] bg-[#BADF01] rounded-[16px] min-h-[143px] flex flex-col justify-between">
+                    <p class="text-black text-sm leading-6 font-light font-text">We are a gaming development studio creating branded worlds and interactive experiences for the next generation.</p>
+                    <a href="/about-us" class="btn-arrow font-inter font-semibold text-sm text-black">→ More About Us</a>
+                </div>
+                <div class="box-img text-right ">
+                    <img src="/images/console-neon.png" alt="console neon" class="ml-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-28 pb-16 abt-quote">
+        <div class="container">
+            <div class="grid grid-cols-1 text-center font-anton text-[128px] gap-9 leading-none">
+                <div class="col-span-1">
+                    <h3 class="text-white">
+                        IDEATE
+                    </h3>
+                </div>
+                <div class="col-span-1">
+                    <h3 class="text-white">
+                        CREATE
+                    </h3>
+                </div>
+                <div class="col-span-1">
+                    <h3 class="text-white">
+                        PROTOTYPE
+                    </h3>
+                </div>
+                <div class="col-span-1">
+                    <h3 class="text-white">
+                        PLAY
+                    </h3>
+                </div>
+                <div class="col-span-1">
+                    <h3 class="text-white">
+                        DO IT AGAIN
+                    </h3>
+                </div>
+            </div>
+            <div class="flex gap-8 justify-center mt-20 abt-quote-sub">
+               <div class="max-w-[260px]">
+                    <p class="text-sm leading-6 font-light font-text text-white">
+                        Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis.
+                    </p>
+               </div>
+               <div class="max-w-[80px]">
+                    <img src="/images/smile-icon.svg" alt="smile icon">
+               </div>
+               <div class="max-w-[250px] w-full">
+                    <a href="#" class="btn btn-default btn-full">
+                        See our work
+                    </a>
+               </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="hubert-s4">
+        <div class="container">
+            <div class="flex">
+                <div class="max-w-[584px]">
+                    <img src="/images/console-neon-1.png" alt="console neon">
+                </div>
+                <div class="flex-1">
+                    <h3 class="heading-title font-sans text-white text-[50px] leading-none">
+                        Our work is guided by four principles that keep it <span class="text-[#BADF01]">playful</span>, <span class="text-[#BADF01]">purposeful</span>, and <span class="text-[#BADF01]">powerful</span>
+                    </h3>
+                    <ul class="list-hubert-s4">
+                        <li>
+                           <div class="inside-box">
+                                <h4>Play First</h4>
+                                <p>
+                                    We design from the player's perspective. Fun, flow, and freedom are always the foundation.
+                                </p>
+                           </div>
+                        </li>
+                        <li>
+                            <div class="inside-box">
+                                <h4>Built for Brands</h4>
+                                <p>
+                                    Our games are made to connect. They deliver impact, not just impressions.
+                                </p>
+                           </div>
+                        </li>
+                        <li>
+                            <div class="inside-box">
+                                <h4>Shaped by Culture</h4>
+                                <p>
+                                    We create experiences that feel authentic to Gen Z and Gen Alpha. Timely, relevant, and ready to spread.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="inside-box">
+                                <h4>Driven by Craft</h4>
+                                <p>
+                                    We move fast, test often, and polish hard. Every world is designed to perform and evolve.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Marquee Examples -->
+    <section class="hubert-marquee">
+        <div class="marquee-container" data-reverse="false" data-speed="50">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>BRAND CUSTOM GAMES</span>
+                    <span>INTERACTIVE EXPERIENCE</span>
+                    <span>ENGAGING GAMEPLAY</span>
+                    <span class="white">BRAND CUSTOM GAMES</span>
+                    <span class="white">INTERACTIVE EXPERIENCE</span>
+                    <span class="white">ENGAGING GAMEPLAY</span>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hubert-project py-[200px]">
+        <div class="container max-w-[1142px]">
+            <div class="block-heading">
+                <h3 class="text-[70px] leading-none font-book text-white border-b border-[#373737] pb-3 mb-3">PROJECTS</h3>
+                <p class="sub-heading max-w-[485px] text-white text-sm leading-6 font-light font-text">
+                    Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis consectetur adipiscing. Doloremque laudantium.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-7">
+                <div class="card-item col-span-1">
+                    <div class="card-img">
+                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                        </a>
+                    </div>
+                    <div class="card-content pr-24 relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t">
+                        <a class="text-white text-[25px] leading-none block mb-5 overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">This is the name of the project.</a>
+                        <p class="text-white text-sm leading-6 font-light font-text">Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis consectetur adipiscing. Doloremque laudantium.</p>
+                        <a class="card-link right-0 bottom-5 absolute text-[#BADF01]" href="#">
+                            <span class="icon-arrow-up text-2xl ml-auto"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-item col-span-1">
+                    <div class="card-img">
+                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                            <img src="/images/project-2.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                        </a>
+                    </div>
+                    <div class="card-content pr-24 relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t">
+                        <a class="text-white text-[25px] leading-none block mb-5 overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">This is the name of the project.</a>
+                        <p class="text-white text-sm leading-6 font-light font-text">Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis consectetur adipiscing. Doloremque laudantium.</p>
+                        <a class="card-link right-0 bottom-5 absolute text-[#BADF01]" href="#">
+                            <span class="icon-arrow-up text-2xl ml-auto"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-item col-span-1">
+                    <div class="card-img">
+                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                            <img src="/images/project-3.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                        </a>
+                    </div>
+                    <div class="card-content pr-24 relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t">
+                        <a class="text-white text-[25px] leading-none block mb-5 overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">This is the name of the project.</a>
+                        <p class="text-white text-sm leading-6 font-light font-text">Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis consectetur adipiscing. Doloremque laudantium.</p>
+                        <a class="card-link right-0 bottom-5 absolute text-[#BADF01]" href="#">
+                            <span class="icon-arrow-up text-2xl ml-auto"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hubert-marquee">
+        <div class="marquee-container" data-reverse="true" data-speed="50">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>BRAND CUSTOM GAMES</span>
+                    <span>INTERACTIVE EXPERIENCE</span>
+                    <span>ENGAGING GAMEPLAY</span>
+                    <span class="white">BRAND CUSTOM GAMES</span>
+                    <span class="white">INTERACTIVE EXPERIENCE</span>
+                    <span class="white">ENGAGING GAMEPLAY</span>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hubert-s5 py-36 bg-section">
+        <div class="container max-w-[1142px]">
+           
+            <div class="grid grid-cols-12 md:grid-cols-12 lg:grid-cols-12 gap-3 mt-7">
+                <div class="col-span-5">
+                    <div class="block-heading">
+                        <h3 class="text-[70px] leading-none font-book text-white">TESTIMONIALS</h3>
+                    </div>
+                </div>
+                <div class="col-span-7">
+                    <div class="testimonial-slide owl-carousel">
+                        <div class="testimonial-item">
+                            <div class="testimonial-heading">
+                                <h4>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                </h4>
+                            </div>
+                            <div class="testimonial-content">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</div>
+                            <div class="testimonial-author text-white">
+                                <p class="font-medium mb-1 leading-none">John Doe</p>
+                                <p class="text-sm">CEO, Company Name</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-heading">
+                                <h4>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                </h4>
+                            </div>
+                            <div class="testimonial-content">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</div>
+                            <div class="testimonial-author text-white">
+                                <p class="font-medium mb-1 leading-none">John Doe</p>
+                                <p class="text-sm">CEO, Company Name</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-heading">
+                                <h4>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                </h4>
+                            </div>
+                            <div class="testimonial-content">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione</div>
+                            <div class="testimonial-author text-white">
+                                <p class="font-medium mb-1 leading-none">John Doe</p>
+                                <p class="text-sm">CEO, Company Name</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </Layout>
+
+<script src="./vendor/gsap/gsap.min.js" defer></script>
+<script src="./vendor/gsap/scrollSmoother.min.js" defer></script>
+<script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="./js/pages/homepage.js" defer></script>

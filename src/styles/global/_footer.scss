@@ -1,0 +1,27 @@
+.footer {
+    padding-top: 170px;
+    padding-bottom: 85px;
+    background: url('/images/footer.png') no-repeat center center;
+    background-size: cover;
+    .top-footer {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 10px;
+        width: 100%;
+    }
+    .bottom-footer {
+        max-width: 840px;
+        padding-top: 63px;
+        .bottom-menu {
+            li {
+                a {
+                    color: #000;
+                    font-family: "HelveticaNowText";
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 160%; /* 20.72px */
+                }
+            }
+        }
+    }
+}
