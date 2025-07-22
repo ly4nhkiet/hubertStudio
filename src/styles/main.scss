@@ -196,3 +196,40 @@ body {
     transform: translate(8%, -9%);
     max-width: 42%;
 }
+
+.abt-quote-title {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    .sharp {
+        position: absolute;
+        img {
+            width: 100%;
+        }
+        &.sharp-ideate {
+            top: -3%;
+            left: -30%;
+            width: 151.5%;
+        }
+        &.sharp-create {
+            top: -10%;
+            left: -8%;
+            width: 108.5%;
+        }
+        &.sharp-prototype {
+            top: 10%;
+            left: -8%;
+            width: 115.2%;
+        }
+        &.sharp-play {
+            top: -11%;
+            left: -33%;
+            width: 160.2%;
+        }
+        &.sharp-do-it-again {
+            top: -16%;
+            left: -17%;
+            width: 132.2%;
+        }
+    }
+}
