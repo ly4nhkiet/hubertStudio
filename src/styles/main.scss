@@ -19,6 +19,10 @@ body {
     -webkit-text-size-adjust: 100%;
     font-weight: 400;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+section {
+    overflow: hidden;
 }
 .bg-section {
     background: linear-gradient(0deg, #4F5963 0%, #080809 100%), linear-gradient(0deg, #000 0%, #000 100%);
@@ -39,24 +43,52 @@ body {
         background-repeat: no-repeat;
     }
     .box-content {
+        @media (max-width: 1200px) {
+            max-width: 300px;
+        }
+        @media (max-width: 1100px) {
+            max-width: 250px;
+        }
+        @media (max-width: 992px) {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
         .sharp-box {
             position: absolute;
             &.sharp-thunder {
                 top: 0;
                 left: 0;
                 transform: translate(-77%, -15%);
+                width: 15%;
             }
             &.sharp-x {
                 bottom: 0;
                 right: 0;
                 transform: translate(73%, -89%);
+                width: 12%;
             }
             &.sharp-heart {
                 bottom: 0;
                 right: 0;
                 transform: translate(93%, 44%);
+                width: 12.71%;
             }
         }
+    }
+    .box-img {
+        width: 100%;
+        img {
+            max-width: 80%;
+            @media (max-width: 1100px) {
+                max-width: 60%;
+            }
+            @media (max-width: 992px) {
+                max-width: 80%;
+                margin-top: 30px;
+            }
+        }
+        
     }
 }
 
@@ -97,13 +129,24 @@ body {
         font-size: 50px;
         font-weight: 500;
         line-height: 1.2;
-        padding-left: 80px;
+        @media (min-width: 1024px) {
+            padding-left: 80px;
+        }
+        @media (max-width: 1023px) {
+            font-size: 40px;
+        }
+        @media (max-width: 768px) {
+            font-size: 30px;
+        }
     }
     .list-hubert-s4 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 60px 30px;
         margin-top: 60px;
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
         li {
             position: relative;
             display: flex;
@@ -121,6 +164,9 @@ body {
                         font-weight: 400;
                         font-style: italic;
                         line-height: 100%;
+                        @media (max-width: 768px) {
+                            font-size: 60px;
+                        }
                     }
                 }
             }
@@ -159,13 +205,17 @@ body {
 
     .marquee-content {
         display: inline-flex;
-        font-family: 'Impact', sans-serif;
+        font-family: 'HelveticaNowText', sans-serif;
         font-size: 41.858px;
         font-style: italic;
         text-transform: uppercase;
         animation: none;
         white-space: nowrap;
         color: #000;
+        font-weight: 600;
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
         span {
             &:after {
                 content: '•';

@@ -8,7 +8,13 @@ const vh = () => {
     });
 }
 
+const hammerMenu = () => {
+    $('.hammer-menu').click(function() {
+        $(this).toggleClass('active');
+        $('.navigation').toggleClass('active');
+    });
+}
 $(document).ready(function() {
-    AOS.init();
     vh();
+    hammerMenu();
 });

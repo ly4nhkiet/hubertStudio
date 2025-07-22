@@ -32,7 +32,12 @@ const { pathname } = Astro.url;
                 <img src="/images/logo.svg" alt="Logo">
             </a>
             <div class="flex items-center gap-4">
-                <ul class="flex items-center gap-9 navigation">
+                <div class="hammer-menu ml-auto lg:hidden">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                <ul class="visibility-hidden opacity-0 lg:opacity-100 lg:visibility-visible lg:flex items-center gap-9 navigation">
                     {menu.map((item) => (
                         <li class="navigation-item"><a href={item.href} class={
                           `text-white text-[10px] font-medium uppercase font-micro block relative tracking-[3px] ${pathname === item.href ? 'current-page' : ''} navigation-link`

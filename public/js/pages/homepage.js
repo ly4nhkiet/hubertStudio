@@ -38,10 +38,9 @@
 //       ScrollTrigger.refresh(); // cập nhật lại layout scroll
 //     });
 //   }
+gsap.registerPlugin(ScrollTrigger);
 
 function worldWork() {
-  gsap.registerPlugin(ScrollTrigger);
-
   let scrollTriggerInstance = null;
   const frameCount = 250;
   const images = [];
@@ -306,18 +305,18 @@ function animateFadeUpSequential() {
 
 
 function animateHubertAboutUs() {
-  gsap.registerPlugin(ScrollTrigger);
 
   const section = document.querySelector('.hubert-about-us');
   const textEls = section.querySelectorAll('.animate-text-about-us');
 
-  // Tách ký tự thành span
   textEls.forEach(el => {
-    const chars = el.textContent.split('');
-    el.innerHTML = chars.map(char => {
-      const safeChar = char === ' ' ? '&nbsp;' : char;
-      return `<span class="char inline-block">${safeChar}</span>`;
-    }).join('');
+    const words = el.textContent.trim().split(/\s+/); // tách từ theo dấu cách
+    el.innerHTML = words.map(word => {
+      const chars = word.split('').map(char => {
+        return `<span class="char">${char}</span>`;
+      }).join('');
+      return `<span class="word" style="display:inline-block;">${chars}</span>`;
+    }).join(' ');
   });
 
   const master = gsap.timeline({
@@ -355,58 +354,64 @@ function animateHubertAboutUs() {
     duration: 0.8,
     ease: "power2.out"
   }, "+=0.3");
+  console.log(master);
 }
 
 function animateQuoteScroll() {
-  gsap.registerPlugin(ScrollTrigger);
+
+  // Xoá sạch ScrollTrigger cũ (gọi luôn kể cả khi chưa tồn tại)
+  ScrollTrigger.getAll().forEach(t => {
+    if (t.trigger && t.trigger.classList.contains('abt-quote')) {
+      t.kill();
+    }
+  });
+
+  // Xoá timeline cũ nếu có
+  if (window.quoteScrollTL) {
+    window.quoteScrollTL.kill();
+    window.quoteScrollTL = null;
+  }
 
   const lines = gsap.utils.toArray(".abt-quote h3");
   const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
+
+  // Tính dynamic end bằng px
+  const scrollLength = window.innerHeight * (lines.length + 1);
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".abt-quote",
       start: "top top",
-      end: () => `+=${window.innerHeight * (lines.length + 1)}`, // cộng thêm cho box cuối
+      end: scrollLength, // dùng số px trực tiếp, không dùng "+="
       scrub: true,
       pin: true,
-      markers: false
+      markers: false,
     }
   });
 
   // Animate từng dòng chữ
   lines.forEach((line, i) => {
-    tl.fromTo(line,
-      {
-        autoAlpha: 0,
-        y: 100
-      },
-      {
-        autoAlpha: 1,
-        y: 0,
-        duration: 1
-      },
+    tl.fromTo(
+      line,
+      { autoAlpha: 0, y: 100 },
+      { autoAlpha: 1, y: 0, duration: 1 },
       i
-    )
+    );
   });
 
-  // ✨ Thêm box cuối fadeUp sau dòng cuối cùng
-  tl.fromTo(finalSection,
-    {
-      autoAlpha: 0,
-      y: 100
-    },
-    {
-      autoAlpha: 1,
-      y: 0,
-      duration: 1
-    },
-    lines.length + 0.5 // sau tất cả dòng chữ
+  // Animate dòng cuối
+  tl.fromTo(
+    finalSection,
+    { autoAlpha: 0, y: 100 },
+    { autoAlpha: 1, y: 0, duration: 1 },
+    lines.length + 0.5
   );
+
+  // Lưu lại timeline để kill sau
+  window.quoteScrollTL = tl;
 }
 
 function animationFadeIn() {
-  gsap.registerPlugin(ScrollTrigger);
 
   document.querySelectorAll("[data-animation]").forEach((el) => {
     const animationType = el.dataset.animation;
@@ -432,6 +437,9 @@ function animationFadeIn() {
       ease: "power3.out",
     });
   });
+  window.addEventListener("resize", () => {
+    ScrollTrigger.refresh();
+  });
 }
 
 function testimonial() {
@@ -452,4 +460,11 @@ $(document).ready(function() {
     animateHubertAboutUs();
     animateQuoteScroll();
     animationFadeIn();
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        animateQuoteScroll();
+      }, 250);
+    });
 });

@@ -3,6 +3,11 @@
     padding-bottom: 85px;
     background: url('/images/footer.png') no-repeat center center;
     background-size: cover;
+    overflow: hidden;
+    @media (max-width: 768px) {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
     .top-footer {
         border-bottom: 1px solid #fff;
         padding-bottom: 10px;
