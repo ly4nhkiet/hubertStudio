@@ -7,3 +7,8 @@ const vh = () => {
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
 }
+
+$(document).ready(function() {
+    AOS.init();
+    vh();
+});

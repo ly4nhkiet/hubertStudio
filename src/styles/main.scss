@@ -38,6 +38,26 @@ body {
         background-position: center;
         background-repeat: no-repeat;
     }
+    .box-content {
+        .sharp-box {
+            position: absolute;
+            &.sharp-thunder {
+                top: 0;
+                left: 0;
+                transform: translate(-77%, -15%);
+            }
+            &.sharp-x {
+                bottom: 0;
+                right: 0;
+                transform: translate(73%, -89%);
+            }
+            &.sharp-heart {
+                bottom: 0;
+                right: 0;
+                transform: translate(93%, 44%);
+            }
+        }
+    }
 }
 
 .btn {
@@ -62,7 +82,9 @@ body {
         width: 100%;
     }
 }
-
+.abt-quote {
+    min-height: calc(var(--vh, 1vh) * 100);
+}
 .hubert-s4 {
     background-image: url('/images/hubert-s4.png');
     background-size: cover;
@@ -160,3 +182,17 @@ body {
     display: inline-block;
     will-change: transform, opacity;
   }
+.sharp-game-cartridge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    transform: translate(0, -28%);
+}
+.sharp-nitendo-console {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(8%, -9%);
+    max-width: 42%;
+}

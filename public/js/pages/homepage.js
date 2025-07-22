@@ -405,6 +405,34 @@ function animateQuoteScroll() {
   );
 }
 
+function animationFadeIn() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll("[data-animation]").forEach((el) => {
+    const animationType = el.dataset.animation;
+
+    let x = 0;
+    let y = 0;
+
+    if (animationType === "fade-left") x = 100;
+    if (animationType === "fade-right") x = -100;
+    if (animationType === "fade-up" || animationType === "fadeIn-up") y = 100;
+    if (animationType === "fade-down") y = -100;
+
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+      x,
+      y,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.out",
+    });
+  });
+}
 
 function testimonial() {
     $('.testimonial-slide').owlCarousel({
@@ -423,4 +451,5 @@ $(document).ready(function() {
     animateFadeUpSequential();
     animateHubertAboutUs();
     animateQuoteScroll();
+    animationFadeIn();
 });
