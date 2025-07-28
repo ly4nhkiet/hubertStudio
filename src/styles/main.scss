@@ -164,6 +164,7 @@ section {
                         font-weight: 400;
                         font-style: italic;
                         line-height: 100%;
+                        line-height: 0.8;
                         @media (max-width: 768px) {
                             font-size: 60px;
                         }
@@ -205,7 +206,7 @@ section {
 
     .marquee-content {
         display: inline-flex;
-        font-family: 'HelveticaNowText', sans-serif;
+        font-family: 'SharpGroteskPE', sans-serif;
         font-size: 41.858px;
         font-style: italic;
         text-transform: uppercase;
@@ -251,6 +252,10 @@ section {
     position: relative;
     display: inline-block;
     line-height: 1;
+    .text {
+        display: block;
+        line-height: 0.9;
+    }
     .sharp {
         position: absolute;
         img {

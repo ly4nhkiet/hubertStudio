@@ -8,16 +8,16 @@ import WorldWork from '../components/sections/worldWork.astro';
     <section class="border-t-[#BADF01] border-t-[20px] hubert-about-us pt-20 pb-16 bg-white">
         <div class="container relative z-10">
             <div class="grid grid-cols-1 xl:text-5xl text-3xl font-bold text-white gap-2">
-                <div class="col-span-1 text-right">
+                <div class="col-span-1 text-right"  data-animation="fade-up">
                     <p class="animate-text-about-us"> Born from the love of gaming, powered by </p>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-1"  data-animation="fade-up" data-delay="0.2">
                     <p class="animate-text-about-us">creative minds, gaming hearts, and brand brains.</p>
                 </div>
                
             </div>
             <div class="mt-16 relative">
-                <div class="box-content absolute top-[90px] left-12 max-w-[365px] p-[21px] px-[30px] pb-[29px] bg-[#BADF01] rounded-[16px] min-h-[143px] flex flex-col justify-between">
+                <div class="box-content absolute top-[90px] left-12 max-w-[365px] p-[21px] px-[30px] pb-[29px] bg-[#BADF01] rounded-[16px] min-h-[143px] flex flex-col justify-between"  data-animation="fade-up" data-delay="0.4">
                     <p class="text-black text-sm leading-6 font-light font-text">We are a gaming development studio creating branded worlds and interactive experiences for the next generation.</p>
                     <a href="/about-us" class="btn-arrow font-inter font-semibold text-sm text-black">→ More About Us</a>
                     <div class="sharp-box sharp-thunder">
@@ -30,7 +30,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                         <img src="/images/sharp-heart.svg" alt="sharp box">
                     </div>
                 </div>
-                <div class="box-img text-right ">
+                <div class="box-img text-right"  data-animation="fade-up" data-delay="0.6">
                     <img src="/images/console-neon.png" alt="console neon" class="ml-auto">
                 </div>
             </div>
@@ -38,7 +38,7 @@ import WorldWork from '../components/sections/worldWork.astro';
     </section>
     <section class="md:pt-28 md:pb-16 py-24 abt-quote flex items-center justify-center">
         <div class="container">
-            <div class="grid grid-cols-1 text-center font-anton xxl:text-[120px]  xl:text-[100px] lg:text-[80px] md:text-[60px] text-[50px] gap-6 leading-none">
+            <div class="grid grid-cols-1 text-center font-anton 2xl:text-[140px]  xl:text-[130px] lg:text-[90px] md:text-[70px] text-[50px] leading-[0]">
                 <div class="col-span-1">
                     <h3 class="text-white abt-quote-title">
                         <span class="text">IDEATE</span>
@@ -101,7 +101,7 @@ import WorldWork from '../components/sections/worldWork.astro';
     <section class="hubert-s4">
         <div class="container">
             <div class="flex lg:flex-nowrap flex-wrap">
-                <div class="lg:max-w-[584px] w-full text-center lg:text-left" data-animation="fade-right">
+                <div class="lg:max-w-[584px] w-full text-center lg:text-left lg:pr-7" data-animation="fade-right">
                     <img src="/images/console-neon-1.png" alt="console neon" class="mx-auto lg:mx-0 lg:max-w-full max-w-[80%]">
                 </div>
                 <div class="flex-1" data-animation="fade-left">
@@ -235,7 +235,7 @@ import WorldWork from '../components/sections/worldWork.astro';
             </div>
         </div>
     </section>
-    <section class="hubert-s5 lg:py-36 py-10 bg-section">
+    <!-- <section class="hubert-s5 lg:py-36 py-10 bg-section">
         <div class="container max-w-[1142px]">
            
             <div class="grid grid-cols-12 md:grid-cols-12 lg:grid-cols-12 gap-3 mt-7">
@@ -286,10 +286,11 @@ import WorldWork from '../components/sections/worldWork.astro';
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </Layout>
 
 <script src="./vendor/gsap/gsap.min.js" defer></script>
 <script src="./vendor/gsap/scrollSmoother.min.js" defer></script>
 <script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="./vendor/gsap/ScrollToPlugin.min.js" defer></script>
 <script src="./js/pages/homepage.js" defer></script>

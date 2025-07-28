@@ -46,14 +46,13 @@ function worldWork() {
   const images = [];
   let currentFrame = 0;
 
-  let speed = 1.0;
-  let boostedSpeed = 4.0;
+  let speed = 0.2;
+  let boostedSpeed = 3.0;
   let currentSpeed = speed;
   let isInsideWorldWork = false;
-  let isScrolling = false;
-  let scrollTimeout = null;
-  
-  
+  let lastAnimationScrollY = window.scrollY;
+  let scrollIdleTimeout = null;
+
   const canvas = document.getElementById("sequence-canvas");
   const context = canvas.getContext("2d");
 
@@ -65,24 +64,22 @@ function worldWork() {
       images.push(img);
     }
   }
-  function handleUserScroll() {
-    if (!isInsideWorldWork) return;
-  
-    currentSpeed = boostedSpeed;
-  
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      // Nếu không cuộn nữa sau 200ms thì giảm lại tốc độ
+
+  function resetScrollStopTimeout() {
+    if (scrollIdleTimeout) clearTimeout(scrollIdleTimeout);
+
+    scrollIdleTimeout = setTimeout(() => {
+      // Khi ngừng scroll → tiếp tục xoay xuôi nhẹ
       currentSpeed = speed;
     }, 200);
   }
-  window.addEventListener("scroll", handleUserScroll);
+
   function resizeCanvas() {
     const wrapper = canvas.parentElement;
     const rect = wrapper.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
-    render(); // vẽ lại khi resize
+    render();
   }
 
   function render() {
@@ -90,20 +87,17 @@ function worldWork() {
     const img = images[frameIndex];
     if (!img || !img.complete) return;
 
-    // Fit ảnh theo kiểu "contain" vào canvas
     const canvasRatio = canvas.width / canvas.height;
     const imgRatio = img.width / img.height;
 
     let drawWidth, drawHeight, offsetX, offsetY;
 
     if (imgRatio > canvasRatio) {
-      // ảnh ngang hơn -> fit theo chiều rộng
       drawWidth = canvas.width;
       drawHeight = canvas.width / imgRatio;
       offsetX = 0;
       offsetY = (canvas.height - drawHeight) / 2;
     } else {
-      // ảnh dọc hơn -> fit theo chiều cao
       drawHeight = canvas.height;
       drawWidth = canvas.height * imgRatio;
       offsetX = (canvas.width - drawWidth) / 2;
@@ -115,7 +109,27 @@ function worldWork() {
   }
 
   function animate() {
+    const newScrollY = window.scrollY;
+    const deltaY = newScrollY - lastAnimationScrollY;
+    lastAnimationScrollY = newScrollY;
+
+    if (isInsideWorldWork) {
+      if (deltaY > 0) {
+        currentSpeed = boostedSpeed;
+        resetScrollStopTimeout();
+      } else if (deltaY < 0) {
+        currentSpeed = -boostedSpeed;
+        resetScrollStopTimeout();
+      }
+      // Nếu không scroll → giữ currentSpeed
+    }
+
     currentFrame += currentSpeed;
+
+    // Loop frames
+    if (currentFrame < 0) currentFrame += frameCount;
+    if (currentFrame >= frameCount) currentFrame -= frameCount;
+
     render();
     requestAnimationFrame(animate);
   }
@@ -126,7 +140,7 @@ function worldWork() {
     const text = document.querySelector(".world-world-horizontal img");
     if (!text) return;
 
-    const distance = text.scrollWidth - window.innerWidth;
+    const distance = text.scrollWidth;
 
     scrollTriggerInstance = ScrollTrigger.create({
       animation: gsap.to(text, {
@@ -142,9 +156,11 @@ function worldWork() {
       invalidateOnRefresh: true,
       onEnter: () => {
         isInsideWorldWork = true;
+        lastAnimationScrollY = window.scrollY;
       },
       onEnterBack: () => {
         isInsideWorldWork = true;
+        lastAnimationScrollY = window.scrollY;
       },
       onLeave: () => {
         isInsideWorldWork = false;
@@ -157,7 +173,7 @@ function worldWork() {
     });
   }
 
-  // Init logic
+  // Init
   loadImages();
 
   images[0].onload = () => {
@@ -172,6 +188,8 @@ function worldWork() {
     ScrollTrigger.refresh();
   });
 }
+
+
 
 function marquee() {
   document.querySelectorAll('.marquee-container').forEach((container) => {
@@ -304,58 +322,58 @@ function animateFadeUpSequential() {
 }
 
 
-function animateHubertAboutUs() {
+// function animateHubertAboutUs() {
 
-  const section = document.querySelector('.hubert-about-us');
-  const textEls = section.querySelectorAll('.animate-text-about-us');
+//   const section = document.querySelector('.hubert-about-us');
+//   const textEls = section.querySelectorAll('.animate-text-about-us');
 
-  textEls.forEach(el => {
-    const words = el.textContent.trim().split(/\s+/); // tách từ theo dấu cách
-    el.innerHTML = words.map(word => {
-      const chars = word.split('').map(char => {
-        return `<span class="char">${char}</span>`;
-      }).join('');
-      return `<span class="word" style="display:inline-block;">${chars}</span>`;
-    }).join(' ');
-  });
+//   textEls.forEach(el => {
+//     const words = el.textContent.trim().split(/\s+/); // tách từ theo dấu cách
+//     el.innerHTML = words.map(word => {
+//       const chars = word.split('').map(char => {
+//         return `<span class="char">${char}</span>`;
+//       }).join('');
+//       return `<span class="word" style="display:inline-block;">${chars}</span>`;
+//     }).join(' ');
+//   });
 
-  const master = gsap.timeline({
-    scrollTrigger: {
-      trigger: section,
-      start: "top 80%",
-      toggleActions: "play none none none"
-    }
-  });
+//   const master = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: section,
+//       start: "top 80%",
+//       toggleActions: "play none none none"
+//     }
+//   });
 
-  // Animate từng đoạn text
-  textEls.forEach((el) => {
-    const chars = el.querySelectorAll('.char');
-    master.from(chars, {
-      opacity: 0,
-      y: 20,
-      duration: 0.6,
-      ease: "power2.out",
-      stagger: 0.03
-    }, "+=0.2");
-  });
+//   // Animate từng đoạn text
+//   textEls.forEach((el) => {
+//     const chars = el.querySelectorAll('.char');
+//     master.from(chars, {
+//       opacity: 0,
+//       y: 20,
+//       duration: 0.6,
+//       ease: "power2.out",
+//       stagger: 0.03
+//     }, "+=0.2");
+//   });
 
-  // Sau khi text xong → box-content
-  master.from(".box-content", {
-    opacity: 0,
-    y: 40,
-    duration: 0.8,
-    ease: "power2.out"
-  }, "+=0.3");
+//   // Sau khi text xong → box-content
+//   master.from(".box-content", {
+//     opacity: 0,
+//     y: 40,
+//     duration: 0.8,
+//     ease: "power2.out"
+//   }, "+=0.3");
 
-  // Tiếp theo → box-img
-  master.from(".box-img", {
-    opacity: 0,
-    y: 40,
-    duration: 0.8,
-    ease: "power2.out"
-  }, "+=0.3");
-  console.log(master);
-}
+//   // Tiếp theo → box-img
+//   master.from(".box-img", {
+//     opacity: 0,
+//     y: 40,
+//     duration: 0.8,
+//     ease: "power2.out"
+//   }, "+=0.3");
+//   console.log(master);
+// }
 
 function animateQuoteScroll() {
 
@@ -376,7 +394,7 @@ function animateQuoteScroll() {
   const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
 
   // Tính dynamic end bằng px
-  const scrollLength = window.innerHeight * (lines.length + 1);
+  const scrollLength = window.innerHeight * (lines.length) / 1.2;
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -412,9 +430,9 @@ function animateQuoteScroll() {
 }
 
 function animationFadeIn() {
-
   document.querySelectorAll("[data-animation]").forEach((el) => {
     const animationType = el.dataset.animation;
+    const delay = parseFloat(el.dataset.delay) || 0;
 
     let x = 0;
     let y = 0;
@@ -434,9 +452,11 @@ function animationFadeIn() {
       y,
       opacity: 0,
       duration: 1.2,
+      delay: delay,
       ease: "power3.out",
     });
   });
+
   window.addEventListener("resize", () => {
     ScrollTrigger.refresh();
   });
@@ -457,7 +477,7 @@ $(document).ready(function() {
     marquee();
     testimonial();
     animateFadeUpSequential();
-    animateHubertAboutUs();
+    // animateHubertAboutUs();
     animateQuoteScroll();
     animationFadeIn();
     let resizeTimeout;
