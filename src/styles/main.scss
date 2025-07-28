@@ -23,6 +23,9 @@ body {
 }
 section {
     overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background-color: #000;
 }
 .bg-section {
     background: linear-gradient(0deg, #4F5963 0%, #080809 100%), linear-gradient(0deg, #000 0%, #000 100%);

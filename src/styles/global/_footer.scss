@@ -4,6 +4,9 @@
     background: url('/images/footer.png') no-repeat center center;
     background-size: cover;
     overflow: hidden;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
     @media (max-width: 768px) {
         padding-top: 60px;
         padding-bottom: 40px;
