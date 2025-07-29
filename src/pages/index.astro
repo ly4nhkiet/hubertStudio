@@ -38,8 +38,10 @@ import WorldWork from '../components/sections/worldWork.astro';
     </section>
     <section class="md:pt-28 md:pb-16 py-24 abt-quote flex items-center justify-center">
         <div class="container">
-            <div class="grid grid-cols-1 text-center font-anton 2xl:text-[140px]  xl:text-[130px] lg:text-[90px] md:text-[70px] text-[50px] leading-[0]">
-                <div class="col-span-1">
+            <div class="grid grid-cols-1 text-center font-anton 2xl:text-[140px]  xl:text-[130px] lg:text-[90px] md:text-[70px] text-[50px] leading-[0] relative ">
+                <div class="backdrop">
+                </div>
+                <div class="col-span-1 relative z-10">
                     <h3 class="text-white abt-quote-title">
                         <span class="text">IDEATE</span>
                         <span class="sharp sharp-ideate">
@@ -47,7 +49,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                         </span>
                     </h3>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-1 relative z-10">
                     <h3 class="text-white abt-quote-title">
                         <span class="text">CREATE</span>
                         <span class="sharp sharp-create">
@@ -55,7 +57,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                         </span>
                     </h3>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-1 relative z-10">
                     <h3 class="text-white abt-quote-title">
                         <span class="text">PROTOTYPE</span>
                         <span class="sharp sharp-prototype">
@@ -63,7 +65,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                         </span>
                     </h3>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-1 relative z-10">
                     <h3 class="text-white abt-quote-title">
                         <span class="text">PLAY</span>
                         <span class="sharp sharp-play">
@@ -71,7 +73,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                         </span>
                     </h3>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-1 relative z-10">
                     <h3 class="text-white abt-quote-title">
                         <span class="text">DO IT AGAIN</span>
                         <span class="sharp sharp-do-it-again">
@@ -96,6 +98,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                </div>
 
             </div>
+           
         </div>
     </section>
     <section class="hubert-s4">

@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/LayoutUpComing.astro';
+---
+
+<Layout title="Up Coming">
+   <section class="up-coming flex items-center justify-center py-10">
+      <div class="container">
+         <div class="flex items-center justify-center gap-10 lg:flex-nowrap flex-wrap">
+            <div class="up-coming-logo w-full lg:w-auto flex items-center justify-center">
+                <img src="/images/upcoming-logo.svg" alt="logo">
+            </div>
+            <div class="sequence-wrapper w-full lg:w-auto flex items-center justify-center">
+                <canvas id="sequence-canvas"></canvas>
+            </div>
+            <div class="up-coming-content w-full lg:w-auto flex items-center justify-center">
+                <h1>Coming Soon</h1>
+            </div>
+         </div>
+      </div>
+   </section>
+</Layout>
+
+<script src="./vendor/gsap/gsap.min.js" defer></script>
+<script src="./vendor/gsap/scrollSmoother.min.js" defer></script>
+<script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="./vendor/gsap/ScrollToPlugin.min.js" defer></script>
+<script src="./js/pages/homepage.js" defer></script>

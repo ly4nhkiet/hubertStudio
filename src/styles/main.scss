@@ -119,6 +119,22 @@ section {
 }
 .abt-quote {
     min-height: calc(var(--vh, 1vh) * 100);
+    position: relative;
+    .backdrop {
+        height: 610px;
+        width: 100%;
+        max-width: 1332px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto 0;
+        background-image: url('/images/rectangle.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        background-size: 100% 100%;
+
+    }
 }
 .hubert-s4 {
     background-image: url('/images/hubert-s4.png');
@@ -289,5 +305,42 @@ section {
             left: -17%;
             width: 132.2%;
         }
+    }
+}
+
+
+.up-coming {
+    height: calc(var(--vh, 1vh) * 100);
+    background-image: url('/images/upcoming-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    font-size: 33px;
+    color: #000;
+    .sequence-wrapper {
+        max-width: 540px;
+        width: 100%;
+        position: relative;
+        aspect-ratio: 1 / 1;
+        display: block;
+        &::before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+            width: 100%;
+        }
+        #sequence-canvas {
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           width: 100%;
+           height: 100%;
+        }
+    }
+    .up-coming-logo {
     }
 }
