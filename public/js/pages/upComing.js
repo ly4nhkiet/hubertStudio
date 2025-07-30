@@ -2,8 +2,13 @@ function upComing() {
     const frameCount = 250;
     const images = [];
     let currentFrame = 0;
-    const speed = 1;
-  
+    
+    // Get speed from URL parameter or use default value of 1
+    const urlParams = new URLSearchParams(window.location.search);
+    let speed = parseFloat(urlParams.get('speed')) || 1;
+    if($("#sequence-canvas").attr("data-speed")) {
+        speed = parseFloat($("#sequence-canvas").attr("data-speed"));
+    }
     const canvas = document.getElementById("sequence-canvas");
     const context = canvas.getContext("2d");
   
