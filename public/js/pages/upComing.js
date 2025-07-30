@@ -2,7 +2,7 @@ function upComing() {
     const frameCount = 250;
     const images = [];
     let currentFrame = 0;
-    const speed = 0.2;
+    const speed = 1;
   
     const canvas = document.getElementById("sequence-canvas");
     const context = canvas.getContext("2d");
