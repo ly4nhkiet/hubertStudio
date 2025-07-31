@@ -5,7 +5,7 @@ function upComing() {
     
     // Get speed from URL parameter or use default value of 1
     const urlParams = new URLSearchParams(window.location.search);
-    let speed = parseFloat(urlParams.get('speed')) || 1;
+    let speed = parseFloat(urlParams.get('speed')) || 0.3;
     if($("#sequence-canvas").attr("data-speed")) {
         speed = parseFloat($("#sequence-canvas").attr("data-speed"));
     }
