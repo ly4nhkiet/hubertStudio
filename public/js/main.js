@@ -7,7 +7,15 @@ const vh = () => {
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
 }
-
+const header = () => {
+    $(window).on('scroll load', function() {
+        if ($(window).scrollTop() > 120) {
+            $('.header').addClass('active');
+        } else {
+            $('.header').removeClass('active');
+        }
+    });
+}
 const hammerMenu = () => {
     $('.hammer-menu').click(function() {
         $(this).toggleClass('active');
@@ -16,5 +24,6 @@ const hammerMenu = () => {
 }
 $(document).ready(function() {
     vh();
+    header();
     hammerMenu();
 });
