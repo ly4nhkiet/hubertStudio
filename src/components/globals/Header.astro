@@ -32,7 +32,7 @@ const { pathname } = Astro.url;
                 <img src="/images/logo.svg" alt="Logo">
             </a>
             <div class="flex items-center gap-4">
-                <div class="hammer-menu ml-auto lg:hidden">
+                <div class="hammer-menu ml-auto lg:hidden header-hammer-menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -48,3 +48,59 @@ const { pathname } = Astro.url;
         </div>
     </div>
 </header>
+
+<div class="nav-trigger lg:block hidden fixed z-50 bg-[#BADF01] top-4 right-4 [&:not(.active)]:opacity-0 [&:not(.active)]:pointer-events-none [&:not(.active)]:translate-x-full transition-all duration-300">
+    <div class="hammer-menu ">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div class="overlay-menu max-w-[528px] fixed top-0 right-0 w-full h-full bg-[#BADF01] z-40 [&:not(.active)]:opacity-0 [&:not(.active)]:pointer-events-none [&:not(.active)]:translate-x-full transition-all duration-300">
+    <div class="overlay-menu-inner max-h-screen overflow-y-auto pt-28 pb-6 px-9">
+        <div class="flex justify-between items-start">
+            <div class="overlay-menu-inner-header flex-1 flex flex-col gap-9">
+                <a href="/" class="item-link current-page">
+                    HOME
+                </a>
+                <a href="/" class="item-link">
+                    WORK
+                </a>
+                <a href="/" class="item-link">
+                    ABOUT US
+                </a>
+                <a href="/" class="item-link">
+                    SERVICES
+                </a>
+                <a href="/" class="item-link">
+                    CONTACT
+                </a>
+            </div>
+            <div class="menu-logo ml-auto">
+                <img src="/images/menu-logo.svg" alt="Logo">
+            </div>
+        </div>
+        <div class="border-[#ffffff] border-t-[1px] border-b-[1px] py-8 mt-16 grid grid-cols-2 gap-7">
+            <div class="col-span-2">
+                <h4 class="font-text text-[10px] uppercase tracking-[3px] text-[#000] mb-1">CONTACT</h4>
+                <a href="mailto:hello@hubert.studio" class="font-display text-[28px] text-[#000] font-medium">hello@hubert.studio</a>
+            </div>
+            <div class="col-span-1">
+                <h4 class="font-text text-[10px] uppercase tracking-[3px] text-[#000] mb-[11px]">OFFICE</h4>
+                <p class="text-[#A2BF0E] text-sm">9B Phung Khac Khoan <br>
+                    Da Kao Ward, District 1 <br>
+                    Ho Chi Minh City, Vietnam</p>
+            </div>
+            <div class="col-span-1">
+                <h4 class="font-text text-[10px] uppercase tracking-[3px] text-[#000] mb-[11px]">SOCIAL</h4>
+                <div class="social flex flex-col [&>a]:text-[#A2BF0E] [&>a]:text-sm [&>a]:trasnition-all [&>a]:duration-300 [&>a]:ease-in-out [&>a:hover]:text-[#000]">
+                    <a href="/" class="social-item" target="_blank">Instagram</a>
+                    <a href="/" class="social-item" target="_blank">Linkedin</a>
+                    <a href="/" class="social-item" target="_blank">Facebook</a>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
