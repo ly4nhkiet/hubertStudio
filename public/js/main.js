@@ -14,7 +14,8 @@ const header = () => {
             $('.nav-trigger').addClass('active');
         } else {
             $('.header').removeClass('active');
-            $('.nav-trigger').removeClass('active');
+            $('.nav-trigger, .nav-trigger .hammer-menu').removeClass('active');
+            $('.overlay-menu').removeClass('active');
         }
     });
 }
