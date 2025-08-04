@@ -1,4 +1,10 @@
 .header {
+    @media (min-width: 1024px) {
+        transition: transform 0.3s ease-in-out;
+        &:not(.on-enter) {
+            transform: translateY(-100%);
+        }
+    }
     .navigation {
         @media(max-width: 1023px) {
             pointer-events: none;

@@ -11,11 +11,16 @@ const header = () => {
     $(window).on('scroll load', function() {
         if ($(window).scrollTop() > 120) {
             $('.header').addClass('active');
-            $('.nav-trigger').addClass('active');
+            if($('.world-work').length > 0) {
+                $('.world-work').addClass('active');
+            }
         } else {
             $('.header').removeClass('active');
             $('.nav-trigger, .nav-trigger .hammer-menu').removeClass('active');
             $('.overlay-menu').removeClass('active');
+            if($('.world-work').length > 0) {
+                $('.world-work').removeClass('active');
+            }
         }
     });
 }

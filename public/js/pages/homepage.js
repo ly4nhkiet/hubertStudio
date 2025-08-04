@@ -157,18 +157,27 @@ function worldWork() {
       onEnter: () => {
         isInsideWorldWork = true;
         lastAnimationScrollY = window.scrollY;
+        $('.nav-trigger').removeClass('active');
+        $('.header ').addClass('on-enter')
       },
       onEnterBack: () => {
         isInsideWorldWork = true;
         lastAnimationScrollY = window.scrollY;
+        $('.nav-trigger').removeClass('active');
+        $('.header ').addClass('on-enter')
       },
       onLeave: () => {
         isInsideWorldWork = false;
         currentSpeed = speed;
+        console.log('onLeave');
+        $('.nav-trigger').addClass('active');
+        $('.header ').removeClass('on-enter')
       },
       onLeaveBack: () => {
         isInsideWorldWork = false;
         currentSpeed = speed;
+        $('.nav-trigger').addClass('active');
+        $('.header ').removeClass('on-enter')
       },
     });
   }
