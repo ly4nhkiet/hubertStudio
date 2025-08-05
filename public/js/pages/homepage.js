@@ -46,9 +46,9 @@ function worldWork() {
   const images = [];
   let currentFrame = 0;
 
-  let speed = 0.2;
-  let boostedSpeed = 2.0;
-  let currentSpeed = speed;
+  let speed = 0.2;           // tốc độ chậm
+  let boostedSpeed = 2.0;    // tốc độ nhanh khi scroll
+  let currentSpeed = speed;  // tốc độ hiện tại
   let isInsideWorldWork = false;
   let lastAnimationScrollY = window.scrollY;
   let scrollIdleTimeout = null;
@@ -69,8 +69,8 @@ function worldWork() {
     if (scrollIdleTimeout) clearTimeout(scrollIdleTimeout);
 
     scrollIdleTimeout = setTimeout(() => {
-      // Khi ngừng scroll → tiếp tục xoay xuôi nhẹ
-      currentSpeed = speed;
+      // Khi ngừng scroll → quay chậm lại theo hướng hiện tại
+      currentSpeed = currentSpeed > 0 ? speed : -speed;
     }, 200);
   }
 
@@ -115,13 +115,15 @@ function worldWork() {
 
     if (isInsideWorldWork) {
       if (deltaY > 0) {
+        // Scroll xuống → quay xuôi nhanh
         currentSpeed = boostedSpeed;
         resetScrollStopTimeout();
       } else if (deltaY < 0) {
-        currentSpeed = speed; // Quay chậm hơn, không ngược
+        // Scroll lên → quay ngược nhanh
+        currentSpeed = -boostedSpeed;
         resetScrollStopTimeout();
       }
-      // Nếu không scroll → giữ currentSpeed
+      // deltaY = 0 → giữ nguyên currentSpeed (timeout sẽ giảm tốc)
     }
 
     currentFrame += currentSpeed;
@@ -141,7 +143,7 @@ function worldWork() {
     if (!text) return;
 
     const distance = text.scrollWidth;
-    const endDistance = "+=" + (window.innerHeight * 2); // hoặc 3, 4 tùy ý
+    const endDistance = "+=" + (window.innerHeight * 2); // chiều dài pin
     scrollTriggerInstance = ScrollTrigger.create({
       animation: gsap.to(text, {
         x: -distance,
@@ -158,26 +160,25 @@ function worldWork() {
         isInsideWorldWork = true;
         lastAnimationScrollY = window.scrollY;
         $('.nav-trigger').removeClass('active');
-        $('.header ').addClass('on-enter')
+        $('.header').addClass('on-enter');
       },
       onEnterBack: () => {
         isInsideWorldWork = true;
         lastAnimationScrollY = window.scrollY;
         $('.nav-trigger').removeClass('active');
-        $('.header ').addClass('on-enter')
+        $('.header').addClass('on-enter');
       },
       onLeave: () => {
         isInsideWorldWork = false;
         currentSpeed = speed;
-        console.log('onLeave');
         $('.nav-trigger').addClass('active');
-        $('.header ').removeClass('on-enter')
+        $('.header').removeClass('on-enter');
       },
       onLeaveBack: () => {
         isInsideWorldWork = false;
         currentSpeed = speed;
         $('.nav-trigger').addClass('active');
-        $('.header ').removeClass('on-enter')
+        $('.header').removeClass('on-enter');
       },
     });
   }
@@ -191,6 +192,7 @@ function worldWork() {
   };
 
   createScrollAnimation();
+
   window.addEventListener("resize", () => {
     resizeCanvas();
     createScrollAnimation();
@@ -385,14 +387,12 @@ function animateFadeUpSequential() {
 // }
 
 function animateQuoteScroll() {
-  // Xoá các ScrollTrigger cũ
+  // Kill các ScrollTrigger cũ
   ScrollTrigger.getAll().forEach(t => {
     if (t.trigger && t.trigger.classList.contains('abt-quote')) {
       t.kill();
     }
   });
-
-  // Xoá timeline cũ
   if (window.quoteScrollTL) {
     window.quoteScrollTL.kill();
     window.quoteScrollTL = null;
@@ -401,37 +401,38 @@ function animateQuoteScroll() {
   const lines = gsap.utils.toArray(".abt-quote h3");
   const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
 
-  // Tạo timeline
+  // Tạo timeline lớn, pin section
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".abt-quote",
-      start: "top center", // hoặc "top 80%"
-      toggleActions: "play none none none", // phát ngay
-      end: "+=100%", // giữ lại nếu bạn muốn pin section
-      markers: false,
+      start: "top top",
+      end: "+=" + (lines.length * 200 + 300) + "px", // tổng độ dài scroll
+      scrub: 1.5,
+      pin: true,
+      markers: true,
     }
   });
 
-  // Animate từng dòng có stagger
-  tl.from(lines, {
-    y: 80,
-    autoAlpha: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
+  // Animate từng line khi tới lượt
+  lines.forEach((line, i) => {
+    tl.from(line, {
+      y: 80,
+      autoAlpha: 0,
+      duration: 0.8,
+      ease: "power2.out"
+    }, i); // i ở đây tạo khoảng cách giữa các line
   });
 
-  // Animate dòng cuối
+  // Animate phần cuối
   if (finalSection) {
     tl.from(finalSection, {
       y: 80,
       autoAlpha: 0,
       duration: 0.8,
       ease: "power2.out"
-    }, "+=0.3"); // delay nhẹ sau h3
+    }, lines.length);
   }
 
-  // Lưu lại để sau có thể kill
   window.quoteScrollTL = tl;
 }
 

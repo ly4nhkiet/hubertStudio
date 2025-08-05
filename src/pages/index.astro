@@ -7,7 +7,7 @@ import WorldWork from '../components/sections/worldWork.astro';
     <WorldWork />
     <section class="border-t-[#BADF01] border-t-[20px] hubert-about-us pt-20 pb-16 bg-white">
         <div class="container relative z-10">
-            <div class="grid grid-cols-1 xl:text-5xl text-3xl font-bold text-white gap-2">
+            <div class="grid grid-cols-1 xl:text-5xl text-3xl font-bold text-white gap-2 font-medium">
                 <div class="col-span-1 text-right"  data-animation="fade-up">
                     <p class="animate-text-about-us"> Born from the love of gaming, powered by </p>
                 </div>
@@ -104,15 +104,15 @@ import WorldWork from '../components/sections/worldWork.astro';
     <section class="hubert-s4">
         <div class="container">
             <div class="flex lg:flex-nowrap flex-wrap">
-                <div class="lg:max-w-[584px] w-full text-center lg:text-left lg:pr-7" data-animation="fade-right">
+                <div class="lg:max-w-[584px] w-full text-center lg:text-left lg:pr-7" data-animation="fade-up">
                     <img src="/images/console-neon-1.png" alt="console neon" class="mx-auto lg:mx-0 lg:max-w-full max-w-[80%]">
                 </div>
-                <div class="flex-1" data-animation="fade-left">
-                    <h3 class="heading-title font-sans text-white text-[50px] leading-none">
+                <div class="flex-1">
+                    <h3 class="heading-title font-sans text-white text-[50px] leading-none" data-animation="fade-up" data-delay="0.2">
                         Our work is guided by four principles that keep it <span class="text-[#BADF01]">playful</span>, <span class="text-[#BADF01]">purposeful</span>, and <span class="text-[#BADF01]">powerful</span>
                     </h3>
                     <ul class="list-hubert-s4">
-                        <li>
+                        <li data-animation="fade-up" data-delay="0.4">
                            <div class="inside-box">
                                 <h4>Play First</h4>
                                 <p>
@@ -120,7 +120,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                                 </p>
                            </div>
                         </li>
-                        <li>
+                        <li data-animation="fade-up" data-delay="0.4">
                             <div class="inside-box">
                                 <h4>Built for Brands</h4>
                                 <p>
@@ -128,7 +128,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                                 </p>
                            </div>
                         </li>
-                        <li>
+                        <li data-animation="fade-up" data-delay="0.6">
                             <div class="inside-box">
                                 <h4>Shaped by Culture</h4>
                                 <p>
@@ -136,7 +136,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                                 </p>
                             </div>
                         </li>
-                        <li>
+                        <li data-animation="fade-up" data-delay="0.6">
                             <div class="inside-box">
                                 <h4>Driven by Craft</h4>
                                 <p>
