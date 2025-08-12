@@ -406,8 +406,8 @@ function animateQuoteScroll() {
     scrollTrigger: {
       trigger: ".abt-quote",
       start: "top top",
-      end: "+=" + (lines.length * 200 + 500) + "px", // tổng độ dài scroll
-      scrub: 1.5,
+      end: "+=" + (lines.length * 200 + 800) + "px", // tổng độ dài scroll
+      scrub: 2,
       pin: true,
       markers: true,
     }

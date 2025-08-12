@@ -6,7 +6,8 @@
         position: relative;
         .sequence-wrapper {
             width: 100%;
-            max-width: 500px;
+            height: 100%;
+            max-width: 45vh;
             aspect-ratio: 1 / 1;
             margin: 0 auto;
             position: absolute;
@@ -42,7 +43,8 @@
         background-image: url('/images/rectangle.svg');
         background-position: center;
         background-repeat: no-repeat;
-
+        height: 100vh;
+        max-height: calc(100vh - 300px);
     }
     .world-world-horizontal {
         position: absolute;
@@ -52,9 +54,9 @@
         transform: translateY(-50%);
         img {
             width: auto;
-            height: 65vh;
+            height: 100vh;
+            max-height: calc((var(--vh, 1vh) * 100 ) - 300px);
             max-width: fit-content;
-            max-height: 700px
         }
     }
 }
