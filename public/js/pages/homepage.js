@@ -494,4 +494,5 @@ $(document).ready(function() {
         animateQuoteScroll();
       }, 250);
     });
+    $('header').addClass('header-home');
 });

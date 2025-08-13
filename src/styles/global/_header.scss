@@ -1,7 +1,7 @@
 .header {
     @media (min-width: 1024px) {
         transition: transform 0.3s ease-in-out;
-        &:not(.on-enter) {
+        &.header-home:not(.on-enter) {
             transform: translateY(-100%);
         }
     }

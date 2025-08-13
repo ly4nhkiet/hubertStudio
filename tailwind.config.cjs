@@ -31,6 +31,7 @@ module.exports = {
 				'inter': ['Inter', 'sans-serif'],
 				'anton': ['Anton', 'sans-serif'],
 				'book': ['SharpGroteskPE', 'sans-serif'],
+				'be': ['Be Vietnam Pro', 'sans-serif'],
 			},
 		}
 	},

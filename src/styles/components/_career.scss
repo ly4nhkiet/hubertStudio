@@ -1,0 +1,51 @@
+.career-form-list {
+    .career-form-item {
+        background: #fff;
+        border-radius: 10px;
+        border: 1px solid #CDCDCD;
+        padding: 20px;
+        display: flex;
+        gap: 28px;
+        .career-img {
+            flex: 0 0 62px;
+            img {
+                border-radius: 10px;
+            }
+        }
+        .career-content {
+            @apply  flex-1 flex flex-col gap-y-[17px] relative pb-[50px];
+            p {
+                @apply font-light text-black text-sm leading-[1.4] font-text;
+            }
+            .view-now {
+                @apply font-text text-[10px] text-black font-normal tracking-[0.3em] uppercase absolute bottom-[-10px] right-0 hover:text-[#BADF01];
+                span {
+                    @apply underline underline-offset-[3px] decoration-1;
+                }
+            }
+        }
+        .career-content-title {
+            @apply font-sans text-[30px] text-black font-medium;
+        }
+    }
+}
+
+.career-modal {
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 0 33px -7px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    .modal-header {
+        background-color: #000;
+        padding: 33px 40px 40px;
+        color: #fff;
+        .modal-subTitle {
+            @apply font-be text-sm font-normal tracking-[0.16em] uppercase mb-2 text-[#BADF01];
+        }
+        .modal-title {
+            @apply font-anton text-[114px] font-normal leading-[0.8];
+        }
+    }
+}

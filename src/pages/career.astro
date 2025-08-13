@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Career">
+    <div class="page-heading min-h-[456px] pt-[144px] pb-[100px] bg-black z-10 relative">
+        <div class="container">
+            <div class="text-center text-white">
+                <p class="page-heading-subTitle font-be font-normal tracking-[0.16em] text-sm">CAREER OPPORTUNITIES</p>
+                <h1 class="page-heading-title mt-12 font-anton text-[237px] tracking-[-0.06em]">WORK WITH US</h1>
+            </div>
+        </div>
+    </div>
+    <section class="hubert-marquee">
+        <div class="marquee-container" data-reverse="true" data-speed="50">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>BRAND CUSTOM GAMES</span>
+                    <span>INTERACTIVE EXPERIENCE</span>
+                    <span>ENGAGING GAMEPLAY</span>
+                    <span class="white">BRAND CUSTOM GAMES</span>
+                    <span class="white">INTERACTIVE EXPERIENCE</span>
+                    <span class="white">ENGAGING GAMEPLAY</span>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="career-content bg-white pb-[177px] pt-[223px]">
+        <div class="container">
+            <div class="flex gap-x-10">
+                <div class="max-w-[407px]">
+                    <h3 class="font-inter text-5xl font-medium text-[#020202]">We <span class="text-[#BADF01]">work hard</span>, to create games we can <span class="text-[#BADF01]">play hard</span>.</h3>
+                </div>
+                <div class="flex-1 max-w-[591px] ml-auto font-inter font-light text-black">
+                    <p>Founded by a team of gamers, nerds, creatives, and industry leaders, Hubert Studio brings together a global crew spanning from Europe to Asia to South America. Our studio is shaping the next generation of branded games.</p>
+                </div>
+            </div>
+            <div class="career-form-list grid grid-cols-3 gap-5 mt-[86px]">
+                <div class="career-form-item col-span-1">
+                    <div class="career-img">
+                        <img src="/images/career.png" alt="">
+                    </div>
+                    <div class="career-content">
+                        <h4 class="career-content-title">LUA Developer</h4>
+                        <p>Develop and maintain high-quality game features using LUA, collaborating with the team to deliver engaging, bug-free experiences.</p>
+                        <a href="#" class="view-now" data-popup="lua-developer">
+                            <span>View</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="career-form-item col-span-1">
+                    <div class="career-img">
+                        <img src="/images/career.png" alt="">
+                    </div>
+                    <div class="career-content">
+                        <h4 class="career-content-title">3D Designer</h4>
+                        <p>Create and optimize detailed 3D environments and assets that blend artistic vision with technical performance.</p>
+                        <a href="#" class="view-now">
+                            <span>View</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="career-form-item col-span-1">
+                    <div class="career-img">
+                        <img src="/images/career.png" alt="">
+                    </div>
+                    <div class="career-content">
+                        <h4 class="career-content-title">Project Manager</h4>
+                        <p>Oversee projects from start to finish, ensuring smooth collaboration, timely delivery, and top-quality results.</p>
+                        <a href="#" class="view-now">
+                            <span>View</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hubert-marquee">
+        <div class="marquee-container" data-reverse="false" data-speed="50">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>BRAND CUSTOM GAMES</span>
+                    <span>INTERACTIVE EXPERIENCE</span>
+                    <span>ENGAGING GAMEPLAY</span>
+                    <span class="white">BRAND CUSTOM GAMES</span>
+                    <span class="white">INTERACTIVE EXPERIENCE</span>
+                    <span class="white">ENGAGING GAMEPLAY</span>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="career-modal" id="lua-developer">
+        <div class="modal-header">
+            <p class="modal-subTitle">HUBERT.STUDIO - CAREER OPPORTUNITIES</p>
+            <h4 class="modal-title">LUA DEVELOPER</h4>
+        </div>
+        <div class="modal-content p-10 font-text text-black font-light leading-[1.5]">
+            <p class="max-w-[610px]">Develop and maintain high-quality game features using LUA, collaborating with the team to deliver engaging, bug-free experiences.</p>
+            <div class="grid grid-cols-2 gap-x-12 mt-10">
+                <div class="col-span-1">
+                    <h5 class="font-be text-sm font-normal tracking-[0.16em] uppercase text-black mb-8">Key Responsibilities:</h5>
+                    <p>Develop and maintain high-quality game features using LUA, collaborating with the team to deliver engaging, bug-free experiences.</p>
+                </div>
+                <div class="col-span-1">
+                    <h5 class="font-be text-sm font-normal tracking-[0.16em] uppercase text-black mb-8">Qualifications:</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script src="./vendor/gsap/gsap.min.js" defer></script>
+<script src="./vendor/gsap/scrollSmoother.min.js" defer></script>
+<script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="./vendor/gsap/ScrollToPlugin.min.js" defer></script>
+<script src="./js/fancybox.js" defer></script>
+<script src="./js/pages/career.js" defer></script>
