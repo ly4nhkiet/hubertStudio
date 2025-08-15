@@ -373,3 +373,63 @@ section {
     .up-coming-logo {
     }
 }
+
+.aboout-us-quote {
+    .backdrop  {
+        min-height: 523px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/backdrop-2.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        img {
+            position: relative;
+            z-index: 1;
+        }
+    }
+    
+}
+
+.ourwork-list {
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    padding-top: 200px;
+    .ourwork-item {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 70px 0;
+       height: calc(var(--vh, 1vh) * 100);
+       display: flex;
+       align-items: flex-start;
+       line-height: 1;
+       .ourwork-title {
+            line-height: 1;
+            font-family: 'HelveticaNowDisplay';
+            display: flex;
+            align-items: center;
+            gap: 20px;
+       }
+       .icon-arrow-up {
+            width: 38px;
+            height: 38px;
+            background-color: #BADF01;
+            border-radius: 50%;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 16px;
+       }
+    }
+}

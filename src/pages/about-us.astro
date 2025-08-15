@@ -3,17 +3,50 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Career">
-    <div class="page-heading min-h-[456px] pt-[144px] pb-[100px] bg-black z-10 relative bg-cover bg-center bg-no-repeat" style="background-image: url('/images/heading-banner.png');">
+    <div class="page-heading min-h-[100vh] pt-[144px] pb-[100px] bg-black z-10 relative flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('/images/about-us-banner.png');">
         <div class="container">
             <div class="text-center text-white">
-                <p class="page-heading-subTitle font-be font-normal tracking-[0.16em] text-sm">CAREER OPPORTUNITIES</p>
-                <h1 class="page-heading-title mt-12 font-anton text-[237px] tracking-[-0.06em]">WORK WITH US</h1>
+                <h1 class="text-[60px] font-inter font-medium text-center">We grew up playing. Now we build the games brands want to be part of.
+                    From strategy to play, we create worlds people will remember.</h1>
             </div>
         </div>
-        <div class="tamagochi absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
-            <img src="/images/tamagochi.png" alt="">
-        </div>
+       
     </div>
+    <section class="about-us-content bg-white pt-[80px] pb-[177px]">
+        <div class="container">
+            <div class="flex gap-x-10">
+                <div class="max-w-[500px] flex flex-col gap-y-2">
+                    <p class="font-display text-sm font-medium tracking-[0.16em] uppercase text-[#BADF01]">ABOUT US</p>
+                    <h3 class="font-inter text-5xl font-medium text-[#020202]">We are </br>Hubert.Studio</h3>
+                </div>
+                <div class="flex-1 max-w-[591px] ml-auto font-inter font-light text-black flex flex-col gap-y-4">
+                    <p>Founded by a team of gamers, nerds, creatives, and industry leaders, Hubert Studio brings together a global crew spanning from Europe to Asia to South America.Our studio is shaping the next generation of branded games.
+                        </p>
+                    <p>Through interactive experiences, custom games, and virtual worlds, we help brands connect, engage, and stand out – Powered by our passion, imagination, and deep tech expertise.</p>
+                </div>
+            </div>
+            <div class="pt-[50px] pb-[70px]">
+                <img src="/images/about-us.png" alt="" class="w-full">
+            </div>
+            <div class="flex gap-x-10">
+                <div class="max-w-[600px] grid grid-cols-2 w-full font-display text-black text-[43px] font-medium divide-x divide-[#BADF01] [&>div]:px-[30px] mx-[-30px]">
+                   <div class="col-span-1">
+                        <h3>100+ <br/>Concurring
+                            Players </h3>
+                   </div>
+                   <div class="col-span-1">
+                        <h3>900+ <br/>Hours <br/>
+                            Played </h3>
+                   </div>
+                </div>
+                <div class="flex-1 max-w-[591px] ml-auto font-inter font-light text-black flex flex-col gap-y-4">
+                    <p>Founded by a team of gamers, nerds, creatives, and industry leaders, Hubert Studio brings together a global crew spanning from Europe to Asia to South America.Our studio is shaping the next generation of branded games.
+                        </p>
+                    <p>Through interactive experiences, custom games, and virtual worlds, we help brands connect, engage, and stand out – Powered by our passion, imagination, and deep tech expertise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="hubert-marquee">
         <div class="marquee-container" data-reverse="true" data-speed="50">
             <div class="marquee-track">
@@ -29,57 +62,13 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
-    <section class="career-content bg-white pb-[177px] pt-[223px]">
-      
+    <div class="aboout-us-quote bg-black py-10 z-10 relative">
         <div class="container">
-            <div class="flex gap-x-10">
-                <div class="max-w-[407px]">
-                    <h3 class="font-inter text-5xl font-medium text-[#020202]">We <span class="text-[#BADF01]">work hard</span>, to create games we can <span class="text-[#BADF01]">play hard</span>.</h3>
-                </div>
-                <div class="flex-1 max-w-[591px] ml-auto font-inter font-light text-black">
-                    <p>Founded by a team of gamers, nerds, creatives, and industry leaders, Hubert Studio brings together a global crew spanning from Europe to Asia to South America. Our studio is shaping the next generation of branded games.</p>
-                </div>
-            </div>
-            <div class="career-form-list grid grid-cols-3 gap-5 mt-[86px]">
-                <div class="career-form-item col-span-1">
-                    <div class="career-img">
-                        <img src="/images/career.png" alt="">
-                    </div>
-                    <div class="career-content">
-                        <h4 class="career-content-title">LUA Developer</h4>
-                        <p>Develop and maintain high-quality game features using LUA, collaborating with the team to deliver engaging, bug-free experiences.</p>
-                        <a href="#" class="view-now" data-popup="lua-developer">
-                            <span>View</span> <span class="icon-arrow-up"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="career-form-item col-span-1">
-                    <div class="career-img">
-                        <img src="/images/career.png" alt="">
-                    </div>
-                    <div class="career-content">
-                        <h4 class="career-content-title">3D Designer</h4>
-                        <p>Create and optimize detailed 3D environments and assets that blend artistic vision with technical performance.</p>
-                        <a href="#" class="view-now">
-                            <span>View</span> <span class="icon-arrow-up"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="career-form-item col-span-1">
-                    <div class="career-img">
-                        <img src="/images/career.png" alt="">
-                    </div>
-                    <div class="career-content">
-                        <h4 class="career-content-title">Project Manager</h4>
-                        <p>Oversee projects from start to finish, ensuring smooth collaboration, timely delivery, and top-quality results.</p>
-                        <a href="#" class="view-now">
-                            <span>View</span> <span class="icon-arrow-up"></span>
-                        </a>
-                    </div>
-                </div>
+            <div class="backdrop flex items-center justify-center">
+                <img src="/images/quote-text.png" alt="">
             </div>
         </div>
-    </section>
+    </div>
     <section class="hubert-marquee">
         <div class="marquee-container" data-reverse="false" data-speed="50">
             <div class="marquee-track">
