@@ -38,4 +38,6 @@ $(document).ready(function() {
     vh();
     header();
     hammerMenu();
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      });
 });

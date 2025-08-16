@@ -46,9 +46,9 @@ function worldWork() {
   const images = [];
   let currentFrame = 0;
 
-  let speed = 0.2;           // tốc độ chậm
-  let boostedSpeed = 2.0;    // tốc độ nhanh khi scroll
-  let currentSpeed = speed;  // tốc độ hiện tại
+  let speed = 0.2;
+  let boostedSpeed = 2.0;
+  let currentSpeed = speed;
   let isInsideWorldWork = false;
   let lastAnimationScrollY = window.scrollY;
   let scrollIdleTimeout = null;
@@ -56,10 +56,11 @@ function worldWork() {
   const canvas = document.getElementById("sequence-canvas");
   const context = canvas.getContext("2d");
 
+  // Load sequence images
   function loadImages() {
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
-      const index = String(i).padStart(4, '0');
+      const index = String(i).padStart(4, "0");
       img.src = `/images/controller/${index}.png`;
       images.push(img);
     }
@@ -67,9 +68,7 @@ function worldWork() {
 
   function resetScrollStopTimeout() {
     if (scrollIdleTimeout) clearTimeout(scrollIdleTimeout);
-
     scrollIdleTimeout = setTimeout(() => {
-      // Khi ngừng scroll → quay chậm lại theo hướng hiện tại
       currentSpeed = currentSpeed > 0 ? speed : -speed;
     }, 200);
   }
@@ -115,20 +114,15 @@ function worldWork() {
 
     if (isInsideWorldWork) {
       if (deltaY > 0) {
-        // Scroll xuống → quay xuôi nhanh
         currentSpeed = boostedSpeed;
         resetScrollStopTimeout();
       } else if (deltaY < 0) {
-        // Scroll lên → quay ngược nhanh
         currentSpeed = -boostedSpeed;
         resetScrollStopTimeout();
       }
-      // deltaY = 0 → giữ nguyên currentSpeed (timeout sẽ giảm tốc)
     }
 
     currentFrame += currentSpeed;
-
-    // Loop frames
     if (currentFrame < 0) currentFrame += frameCount;
     if (currentFrame >= frameCount) currentFrame -= frameCount;
 
@@ -136,26 +130,38 @@ function worldWork() {
     requestAnimationFrame(animate);
   }
 
+  // ScrollTrigger cho text + overlay
   function createScrollAnimation() {
     if (scrollTriggerInstance) scrollTriggerInstance.kill();
 
     const text = document.querySelector(".world-world-horizontal img");
-    if (!text) return;
+    const overlay = document.querySelector(".reveal-overlay");
+    if (!text || !overlay) return;
 
     const distance = text.scrollWidth;
-    const endDistance = "+=" + (window.innerHeight * 2); // chiều dài pin
+    const endDistance = "+=" + window.innerHeight * 3;
+
+    const tl = gsap.timeline();
+    tl.to(text, {
+      x: -distance,
+      ease: "linear",
+      duration: 2,
+    }).fromTo(
+      overlay,
+      { yPercent: 100 },
+      { yPercent: 0, ease: "none", duration: 1 },
+      ">+=0.2" // bắt đầu ngay sau text chạy
+    );
+
     scrollTriggerInstance = ScrollTrigger.create({
-      animation: gsap.to(text, {
-        x: -distance,
-        ease: 'linear',
-      }),
+      animation: tl,
       trigger: ".world-work",
       start: "top top",
       end: endDistance,
-      scrub: 1.5,
+      scrub: true,
       pin: true,
-      markers: false,
-      invalidateOnRefresh: true,
+      anticipatePin: 1,
+      markers: true, // để debug
       onEnter: () => {
         isInsideWorldWork = true;
         lastAnimationScrollY = window.scrollY;
@@ -199,7 +205,6 @@ function worldWork() {
     ScrollTrigger.refresh();
   });
 }
-
 
 
 function marquee() {
@@ -387,12 +392,12 @@ function animateFadeUpSequential() {
 // }
 
 function animateQuoteScroll() {
-  // Kill các ScrollTrigger cũ
   ScrollTrigger.getAll().forEach(t => {
     if (t.trigger && t.trigger.classList.contains('abt-quote')) {
       t.kill();
     }
   });
+
   if (window.quoteScrollTL) {
     window.quoteScrollTL.kill();
     window.quoteScrollTL = null;
@@ -401,29 +406,30 @@ function animateQuoteScroll() {
   const lines = gsap.utils.toArray(".abt-quote h3");
   const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
 
-  // Tạo timeline lớn, pin section
+  const extraDelay = 300; // px scroll delay sau khi final section hiện xong
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".abt-quote",
       start: "top top",
-      end: "+=" + (lines.length * 200 + 800) + "px", // tổng độ dài scroll
+      end: "+=" + (lines.length * 200 + 800 + extraDelay) + "px",
       scrub: 2,
       pin: true,
+      pinSpacing: true,
+      anticipatePin: 1,
       markers: true,
     }
   });
 
-  // Animate từng line khi tới lượt
   lines.forEach((line, i) => {
     tl.from(line, {
       y: 80,
       autoAlpha: 0,
       duration: 0.8,
       ease: "power2.out"
-    }, i); // i ở đây tạo khoảng cách giữa các line
+    }, i);
   });
 
-  // Animate phần cuối
   if (finalSection) {
     tl.from(finalSection, {
       y: 80,
@@ -431,11 +437,13 @@ function animateQuoteScroll() {
       duration: 0.8,
       ease: "power2.out"
     }, lines.length);
+
+    // giữ timeline đứng yên thêm một nhịp sau finalSection
+    tl.to({}, {duration: 1}); 
   }
 
   window.quoteScrollTL = tl;
 }
-
 function animationFadeIn() {
   document.querySelectorAll("[data-animation]").forEach((el) => {
     const animationType = el.dataset.animation;
@@ -478,6 +486,21 @@ function testimonial() {
         dots: true,
     });
 }
+
+function projectCarousel() {
+  $('.project-carousel').owlCarousel({
+    items: 2,
+    margin: 18,
+    nav: true,
+    dots: false,
+    navText: [
+      '<span class="icon-arrow-left"></span>',
+      '<span class="icon-arrow-right"></span>'
+    ],
+  });
+  
+}
+
 $(document).ready(function() {
     // world work
     worldWork();
@@ -495,4 +518,5 @@ $(document).ready(function() {
       }, 250);
     });
     $('header').addClass('header-home');
+    projectCarousel();
 });

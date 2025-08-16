@@ -5,37 +5,43 @@ import WorldWork from '../components/sections/worldWork.astro';
 
 <Layout title="Homepage">
     <WorldWork />
-    <section class="border-t-[#BADF01] border-t-[20px] hubert-about-us pt-20 pb-16 bg-white">
-        <div class="container relative z-10">
-            <div class="grid grid-cols-1 xl:text-5xl text-3xl font-bold text-white gap-2 font-medium">
-                <div class="col-span-1 text-right"  data-animation="fade-up">
-                    <p class="animate-text-about-us"> Born from the love of gaming, powered by </p>
+    <section class="border-t-[#BADF01] border-t-[20px] hubert-about-us pt-20 md:pb-16 bg-white hubert-s2 z-index-[2]">
+        <div class="hubert-s2-content">
+            <div class="container relative z-10">
+                <div class=" xl:text-5xl text-3xl font-medium text-white gap-2 min-h-[50vh] flex pt-[15vh] items-start hubert-s2-text" data-animation="fade-up">
+                    <div class="grid grid-cols-1 w-full">
+                        <div class="col-span-1 text-right">
+                            <p class="animate-text-about-us"> Born from the love of gaming, powered by </p>
+                        </div>
+                        <div class="col-span-1">
+                            <p class="animate-text-about-us">creative minds, gaming hearts, and brand brains.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-span-1"  data-animation="fade-up" data-delay="0.2">
-                    <p class="animate-text-about-us">creative minds, gaming hearts, and brand brains.</p>
+                <div class="relative hubert-s2-box" data-animation="fade-up" data-delay="0.4">
+                   <div class=" -translate-y-[17vh]">
+                        <div class="box-content absolute top-[90px] left-12 md:!max-w-[365px] w-full !max-w-[100%] p-[21px] px-[30px] pb-[29px] bg-[#BADF01] rounded-[16px] min-h-[143px] flex flex-col justify-between z-10"  >
+                            <p class="text-black text-sm leading-6 font-light font-text">We are a gaming development studio creating branded worlds and interactive experiences for the next generation.</p>
+                            <a href="/about-us" class="btn-arrow font-inter font-semibold text-sm text-black mt-[62px]">→ More About Us</a>
+                            <div class="sharp-box sharp-thunder">
+                                <img src="/images/sharp-light.svg" alt="sharp box">
+                            </div>
+                            <div class="sharp-box sharp-x">
+                                <img src="/images/sharp-x.svg" alt="sharp box">
+                            </div>
+                            <div class="sharp-box sharp-heart">
+                                <img src="/images/sharp-heart.svg" alt="sharp box">
+                            </div>
+                        </div>
+                        <div class="box-img text-right">
+                            <img src="/images/console-neon.png" alt="console neon" class="ml-auto">
+                        </div>
+                   </div>
                 </div>
-               
             </div>
-            <div class="mt-16 relative">
-                <div class="box-content absolute top-[90px] left-12 max-w-[365px] p-[21px] px-[30px] pb-[29px] bg-[#BADF01] rounded-[16px] min-h-[143px] flex flex-col justify-between z-10"  data-animation="fade-up" data-delay="0.4">
-                    <p class="text-black text-sm leading-6 font-light font-text">We are a gaming development studio creating branded worlds and interactive experiences for the next generation.</p>
-                    <a href="/about-us" class="btn-arrow font-inter font-semibold text-sm text-black mt-[62px]">→ More About Us</a>
-                    <div class="sharp-box sharp-thunder">
-                        <img src="/images/sharp-light.svg" alt="sharp box">
-                    </div>
-                    <div class="sharp-box sharp-x">
-                        <img src="/images/sharp-x.svg" alt="sharp box">
-                    </div>
-                    <div class="sharp-box sharp-heart">
-                        <img src="/images/sharp-heart.svg" alt="sharp box">
-                    </div>
-                </div>
-                <div class="box-img text-right"  data-animation="fade-up" data-delay="0.6">
-                    <img src="/images/console-neon.png" alt="console neon" class="ml-auto">
-                </div>
-            </div>
-        </div>
+       </div>
     </section>
+   
     <section class="md:pt-28 md:pb-16 py-24 abt-quote flex items-center justify-center">
         <div class="container">
             <div class="grid grid-cols-1 text-center font-anton 2xl:text-[140px]  xl:text-[130px] lg:text-[90px] md:text-[70px] text-[50px] leading-[0] relative ">
@@ -178,50 +184,61 @@ import WorldWork from '../components/sections/worldWork.astro';
                     <img src="/images/game-cartridge.png" alt="game cartridge">
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-7" data-animation="fadeIn-up">
-                <div class="card-item col-span-1">
+            <div class="mt-7 owl-carousel project-carousel" data-animation="fadeIn-up">
+                <div class="card-item">
                     <div class="card-img">
                         <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
                             <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
                         </a>
                     </div>
-                    <div class="card-content pr-24 relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t">
-                        <a class="text-white text-[25px] leading-none block mb-5 overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">This is the name of the project.</a>
-                        <p class="text-white text-sm leading-6 font-light font-text">Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis consectetur adipiscing. Doloremque laudantium.</p>
-                        <a class="card-link right-0 bottom-5 absolute text-[#BADF01]" href="#">
-                            <span class="icon-arrow-up text-2xl ml-auto"></span>
+                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
+                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                            VIEW
                         </a>
                     </div>
                 </div>
-                <div class="card-item col-span-1">
+                <div class="card-item">
                     <div class="card-img">
                         <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
-                            <img src="/images/project-2.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
                         </a>
                     </div>
-                    <div class="card-content pr-24 relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t">
-                        <a class="text-white text-[25px] leading-none block mb-5 overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">This is the name of the project.</a>
-                        <p class="text-white text-sm leading-6 font-light font-text">Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis consectetur adipiscing. Doloremque laudantium.</p>
-                        <a class="card-link right-0 bottom-5 absolute text-[#BADF01]" href="#">
-                            <span class="icon-arrow-up text-2xl ml-auto"></span>
+                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
+                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                            VIEW
                         </a>
                     </div>
                 </div>
-                <div class="card-item col-span-1">
+                <div class="card-item">
                     <div class="card-img">
                         <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
-                            <img src="/images/project-3.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
                         </a>
                     </div>
-                    <div class="card-content pr-24 relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t">
-                        <a class="text-white text-[25px] leading-none block mb-5 overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">This is the name of the project.</a>
-                        <p class="text-white text-sm leading-6 font-light font-text">Lorem ipsum dolor sit amet, elit sed do eiusmod, tempor incididunt veritatis consectetur adipiscing. Doloremque laudantium.</p>
-                        <a class="card-link right-0 bottom-5 absolute text-[#BADF01]" href="#">
-                            <span class="icon-arrow-up text-2xl ml-auto"></span>
+                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
+                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                            VIEW
+                        </a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="card-img">
+                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                        </a>
+                    </div>
+                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t flex items-center">
+                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                            VIEW
                         </a>
                     </div>
                 </div>
             </div>
+           
         </div>
     </section>
     <section class="hubert-marquee">
@@ -297,4 +314,5 @@ import WorldWork from '../components/sections/worldWork.astro';
 <script src="./vendor/gsap/scrollSmoother.min.js" defer></script>
 <script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
 <script src="./vendor/gsap/ScrollToPlugin.min.js" defer></script>
+<script src="./js/owl.carousel.min.js" defer></script>
 <script src="./js/pages/homepage.js" defer></script>

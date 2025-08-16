@@ -3,34 +3,34 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Career">
-    <div class="page-heading min-h-[100vh] pt-[144px] pb-[100px] bg-black z-10 relative flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('/images/about-us-banner.png');">
+    <div class="page-heading md:min-h-[100vh] min-h-[400px] pt-[144px] md:pb-[100px] pb-[50px] bg-black z-10 relative flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('/images/about-us-banner.png');">
         <div class="container">
             <div class="text-center text-white">
-                <h1 class="text-[60px] font-inter font-medium text-center">We grew up playing. Now we build the games brands want to be part of.
+                <h1 class="md:text-[60px] text-[30px] font-inter font-medium text-center">We grew up playing. Now we build the games brands want to be part of.
                     From strategy to play, we create worlds people will remember.</h1>
             </div>
         </div>
        
     </div>
-    <section class="about-us-content bg-white pt-[80px] pb-[177px]">
+    <section class="about-us-content bg-white md:pt-[80px] pt-[50px] md:pb-[177px] pb-[100px]">
         <div class="container">
-            <div class="flex gap-x-10">
-                <div class="max-w-[500px] flex flex-col gap-y-2">
+            <div class="flex gap-x-10 md:flex-nowrap flex-wrap">
+                <div class="md:max-w-[500px] max-w-full flex flex-col gap-y-2">
                     <p class="font-display text-sm font-medium tracking-[0.16em] uppercase text-[#BADF01]">ABOUT US</p>
-                    <h3 class="font-inter text-5xl font-medium text-[#020202]">We are </br>Hubert.Studio</h3>
+                    <h3 class="font-inter md:text-5xl text-4xl font-medium text-[#020202]">We are </br>Hubert.Studio</h3>
                 </div>
-                <div class="flex-1 max-w-[591px] ml-auto font-inter font-light text-black flex flex-col gap-y-4">
+                <div class="md:flex-1 md:max-w-[591px] max-w-full ml-auto font-inter font-light text-black flex flex-col gap-y-4 md:mt-0 mt-5">
                     <p>Founded by a team of gamers, nerds, creatives, and industry leaders, Hubert Studio brings together a global crew spanning from Europe to Asia to South America.Our studio is shaping the next generation of branded games.
                         </p>
                     <p>Through interactive experiences, custom games, and virtual worlds, we help brands connect, engage, and stand out – Powered by our passion, imagination, and deep tech expertise.</p>
                 </div>
             </div>
-            <div class="pt-[50px] pb-[70px]">
+            <div class="md:pt-[50px] pt-[20px] md:pb-[70px] pb-[50px]">
                 <img src="/images/about-us.png" alt="" class="w-full">
             </div>
-            <div class="flex gap-x-10">
-                <div class="max-w-[600px] grid grid-cols-2 w-full font-display text-black text-[43px] font-medium divide-x divide-[#BADF01] [&>div]:px-[30px] mx-[-30px]">
-                   <div class="col-span-1">
+            <div class="flex gap-x-10 md:flex-nowrap flex-wrap">
+                    <div class="md:max-w-[600px] max-w-full grid grid-cols-2 w-full font-display text-black md:text-[43px] text-[30px] font-medium divide-x divide-[#BADF01] [&>div]:px-[30px] mx-[-30px]">
+                    <div class="col-span-1">
                         <h3>100+ <br/>Concurring
                             Players </h3>
                    </div>
@@ -39,7 +39,7 @@ import Layout from '../layouts/Layout.astro';
                             Played </h3>
                    </div>
                 </div>
-                <div class="flex-1 max-w-[591px] ml-auto font-inter font-light text-black flex flex-col gap-y-4">
+                <div class="md:flex-1 md:max-w-[591px] max-w-full ml-auto font-inter font-light text-black flex flex-col gap-y-4 md:mt-0 mt-5">
                     <p>Founded by a team of gamers, nerds, creatives, and industry leaders, Hubert Studio brings together a global crew spanning from Europe to Asia to South America.Our studio is shaping the next generation of branded games.
                         </p>
                     <p>Through interactive experiences, custom games, and virtual worlds, we help brands connect, engage, and stand out – Powered by our passion, imagination, and deep tech expertise.</p>
@@ -62,9 +62,9 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
-    <div class="aboout-us-quote bg-black py-10 z-10 relative">
+    <div class="aboout-us-quote bg-black md:py-10 py-5 z-10 relative">
         <div class="container">
-            <div class="backdrop flex items-center justify-center">
+            <div class="backdrop flex items-center justify-center md:!min-h-[523px] !min-h-[300px]">
                 <img src="/images/quote-text.png" alt="">
             </div>
         </div>

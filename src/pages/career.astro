@@ -3,14 +3,14 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Career">
-    <div class="page-heading min-h-[456px] pt-[144px] pb-[100px] bg-black z-10 relative bg-cover bg-center bg-no-repeat" style="background-image: url('/images/heading-banner.png');">
+    <div class="page-heading md:min-h-[456px] min-h-[300px] pt-[144px] md:pb-[100px] pb-[50px] bg-black z-10 relative bg-cover bg-center bg-no-repeat" style="background-image: url('/images/heading-banner.png');">
         <div class="container">
             <div class="text-center text-white">
-                <p class="page-heading-subTitle font-be font-normal tracking-[0.16em] text-sm">CAREER OPPORTUNITIES</p>
-                <h1 class="page-heading-title mt-12 font-anton text-[237px] tracking-[-0.06em]">WORK WITH US</h1>
+                <p class="page-heading-subTitle font-be font-normal tracking-[0.16em] md:text-sm text-[10px]">CAREER OPPORTUNITIES</p>
+                <h1 class="page-heading-title md:mt-12 mt-6 font-anton md:text-[160px] xl:text-[237px] text-[70px] tracking-[-0.06em]">WORK WITH US</h1>
             </div>
         </div>
-        <div class="tamagochi absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
+        <div class="tamagochi absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 xl:max-w-full md:max-w-[320px] max-w-[200px]">
             <img src="/images/tamagochi.png" alt="">
         </div>
     </div>
@@ -29,19 +29,19 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
-    <section class="career-content bg-white pb-[177px] pt-[223px]">
+    <section class="career-content bg-white md:pb-[177px] pb-[100px] md:pt-[223px] pt-[100px]">
       
         <div class="container">
-            <div class="flex gap-x-10">
-                <div class="max-w-[407px]">
-                    <h3 class="font-inter text-5xl font-medium text-[#020202]">We <span class="text-[#BADF01]">work hard</span>, to create games we can <span class="text-[#BADF01]">play hard</span>.</h3>
+            <div class="flex gap-x-10 md:flex-nowwrap flex-wrap">
+                <div class="md:max-w-[407px] max-w-full md:mb-0 mb-5">
+                    <h3 class="font-inter md:text-5xl text-3xl font-medium text-[#020202]">We <span class="text-[#BADF01]">work hard</span>, to create games we can <span class="text-[#BADF01]">play hard</span>.</h3>
                 </div>
-                <div class="flex-1 max-w-[591px] ml-auto font-inter font-light text-black">
+                <div class="flex-1 md:max-w-[591px] max-w-full ml-auto font-inter font-light text-black">
                     <p>Founded by a team of gamers, nerds, creatives, and industry leaders, Hubert Studio brings together a global crew spanning from Europe to Asia to South America. Our studio is shaping the next generation of branded games.</p>
                 </div>
             </div>
             <div class="career-form-list grid grid-cols-3 gap-5 mt-[86px]">
-                <div class="career-form-item col-span-1">
+                <div class="career-form-item md:col-span-1 col-span-3">
                     <div class="career-img">
                         <img src="/images/career.png" alt="">
                     </div>
@@ -53,7 +53,7 @@ import Layout from '../layouts/Layout.astro';
                         </a>
                     </div>
                 </div>
-                <div class="career-form-item col-span-1">
+                <div class="career-form-item md:col-span-1 col-span-3">
                     <div class="career-img">
                         <img src="/images/career.png" alt="">
                     </div>
@@ -65,7 +65,7 @@ import Layout from '../layouts/Layout.astro';
                         </a>
                     </div>
                 </div>
-                <div class="career-form-item col-span-1">
+                <div class="career-form-item md:col-span-1 col-span-3">
                     <div class="career-img">
                         <img src="/images/career.png" alt="">
                     </div>

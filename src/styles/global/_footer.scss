@@ -19,7 +19,7 @@
         cursor: pointer;
         &:after {
             display: block;
-            width: 100%;
+            width: 70%;
             height: 100%;
             content: '';
             position: absolute;
@@ -29,6 +29,8 @@
         &:after {
             background-image: url('/images/ready-build-world.png');
             background-repeat: no-repeat;
+            background-size: contain;
+            padding-top: 27.231%;
         }
         &:before {
             background-image: url('/images/ready-build-world-hover.png');
@@ -40,6 +42,8 @@
             content: '';
             padding-top: 27.231%;
             position: relative;
+            background-size: contain;
+            width: 70%;
         }
         &:hover {
             &:before {
