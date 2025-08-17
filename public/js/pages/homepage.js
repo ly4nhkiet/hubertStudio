@@ -399,64 +399,47 @@ function debounce(func, wait) {
   };
 }
 function animateQuoteScroll() {
-  // clear old triggers
-  ScrollTrigger.getAll().forEach(t => {
-    if (t.trigger && t.trigger.classList.contains('abt-quote')) {
-      t.kill();
+  ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function () {
+      const vh = document.documentElement.clientHeight;
+      const lines = gsap.utils.toArray(".abt-quote h3");
+      const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".abt-quote",
+          start: "top top",
+          end: "+=" + vh * 3,
+          scrub: 2,
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          // markers: true,
+        }
+      });
+
+      lines.forEach((line, i) => {
+        tl.from(line, {
+          y: 80,
+          autoAlpha: 0,
+          duration: 0.8,
+          ease: "power2.in"
+        }, i);
+      });
+
+      if (finalSection) {
+        tl.from(finalSection, {
+          y: 80,
+          autoAlpha: 0,
+          duration: 0.8,
+          ease: "power2.in"
+        }, lines.length);
+
+        tl.to({}, { duration: 1 });
+      }
     }
   });
-
-  if (window.quoteScrollTL) {
-    window.quoteScrollTL.kill();
-    window.quoteScrollTL = null;
-  }
-
-  const lines = gsap.utils.toArray(".abt-quote h3");
-  const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
-
-  const vh = window.innerHeight; // viewport height
-  const lineDuration = vh * 0.6; // mỗi line reveal chiếm 60% viewport
-  const finalDuration = vh * 0.8; // phần cuối chiếm 80%
-  const extraDelay = vh * 0.3;    // giữ thêm 30%
-
-  const totalScroll = lines.length * lineDuration + finalDuration + extraDelay;
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".abt-quote",
-      start: "top top",
-      end: "+=" + totalScroll,
-      scrub: 2,
-      pin: true,
-      pinSpacing: true,
-      anticipatePin: 1,
-      // markers: true,
-    }
-  });
-
-  lines.forEach((line, i) => {
-    tl.from(line, {
-      y: 80,
-      autoAlpha: 0,
-      duration: 0.8,
-      ease: "power2.out"
-    }, i);
-  });
-
-  if (finalSection) {
-    tl.from(finalSection, {
-      y: 80,
-      autoAlpha: 0,
-      duration: 0.8,
-      ease: "power2.out"
-    }, lines.length);
-
-    tl.to({}, {duration: 1}); // giữ yên sau cùng
-  }
-
-  window.quoteScrollTL = tl;
 }
-
 function animationFadeIn() {
   document.querySelectorAll("[data-animation]").forEach((el) => {
     const animationType = el.dataset.animation;
@@ -540,10 +523,7 @@ $(document).ready(function() {
     animateFadeUpSequential();
     // animateHubertAboutUs();
     animationFadeIn();
-    window.addEventListener("resize", () => {
-      animateQuoteScroll();
-      ScrollTrigger.refresh();
-    });
+    
     
     // init
     animateQuoteScroll();
