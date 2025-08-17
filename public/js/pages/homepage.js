@@ -390,8 +390,16 @@ function animateFadeUpSequential() {
 //   }, "+=0.3");
 //   console.log(master);
 // }
-
+function debounce(func, wait) {
+  let timeout;
+  return function() {
+    const context = this, args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}
 function animateQuoteScroll() {
+  // clear old triggers
   ScrollTrigger.getAll().forEach(t => {
     if (t.trigger && t.trigger.classList.contains('abt-quote')) {
       t.kill();
@@ -406,18 +414,23 @@ function animateQuoteScroll() {
   const lines = gsap.utils.toArray(".abt-quote h3");
   const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
 
-  const extraDelay = 300; // px scroll delay sau khi final section hiện xong
+  const vh = window.innerHeight; // viewport height
+  const lineDuration = vh * 0.6; // mỗi line reveal chiếm 60% viewport
+  const finalDuration = vh * 0.8; // phần cuối chiếm 80%
+  const extraDelay = vh * 0.3;    // giữ thêm 30%
+
+  const totalScroll = lines.length * lineDuration + finalDuration + extraDelay;
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".abt-quote",
       start: "top top",
-      end: "+=" + (lines.length * 200 + 800 + extraDelay) + "px",
+      end: "+=" + totalScroll,
       scrub: 2,
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
-      markers: true,
+      // markers: true,
     }
   });
 
@@ -438,12 +451,12 @@ function animateQuoteScroll() {
       ease: "power2.out"
     }, lines.length);
 
-    // giữ timeline đứng yên thêm một nhịp sau finalSection
-    tl.to({}, {duration: 1}); 
+    tl.to({}, {duration: 1}); // giữ yên sau cùng
   }
 
   window.quoteScrollTL = tl;
 }
+
 function animationFadeIn() {
   document.querySelectorAll("[data-animation]").forEach((el) => {
     const animationType = el.dataset.animation;
@@ -526,15 +539,14 @@ $(document).ready(function() {
     testimonial();
     animateFadeUpSequential();
     // animateHubertAboutUs();
-    animateQuoteScroll();
     animationFadeIn();
-    let resizeTimeout;
     window.addEventListener("resize", () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        animateQuoteScroll();
-      }, 250);
+      animateQuoteScroll();
+      ScrollTrigger.refresh();
     });
+    
+    // init
+    animateQuoteScroll();
     $('header').addClass('header-home');
     projectCarousel();
 });
