@@ -14,27 +14,27 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </div>
     <div class="ourwork-list">
-        <div class="ourwork-item relative" style="background-image: url('/images/ourwork-1.png');">
+        <div class="ourwork-item relative" style="--bg-image: url('/images/ourwork-1.png');">
             <a href="#" class="ourwork-link"></a>
-            <div class="container flex flex-wrap md:gap-10 gap-5 items-start md:relative sticky md:top-0 top-[144px]">
+            <div class="container flex flex-wrap md:gap-10 gap-5 items-start  sticky top-[144px] ourwork-content-wrapper">
                 <h3 class="ourwork-title text-display lg:text-[70px] text-[50px] font-bold text-white">Faryngrove <span class="icon-arrow-up"></span></h3>
                 <div class="ourwork-content lg:max-w-[362px] ml-auto text-white leading-[1.4] lg:text-right">
                     <p>A fantastical open-world map set on an intricately designed floating island. Explore hidden easter eggs and captivating landmarks scattered throughout this immersive environment, crafted exclusively for Fortnite players.</p>
                 </div>
             </div>
         </div>
-        <div class="ourwork-item relative" style="background-image: url('/images/ourwork-1.png');">
+        <div class="ourwork-item relative" style="--bg-image: url('/images/ourwork-1.png');">
             <a href="#" class="ourwork-link"></a>
-            <div class="container flex flex-wrap md:gap-10 gap-5 items-start md:relative sticky md:top-0 top-[144px]">
+            <div class="container flex flex-wrap md:gap-10 gap-5 items-start  sticky top-[144px] ourwork-content-wrapper">
                 <h3 class="ourwork-title text-display lg:text-[70px] text-[50px] font-bold text-white">Faryngrove <span class="icon-arrow-up"></span></h3>
                 <div class="ourwork-content lg:max-w-[362px] ml-auto text-white leading-[1.4] lg:text-right">
                     <p>A fantastical open-world map set on an intricately designed floating island. Explore hidden easter eggs and captivating landmarks scattered throughout this immersive environment, crafted exclusively for Fortnite players.</p>
                 </div>
             </div>
         </div>
-        <div class="ourwork-item relative" style="background-image: url('/images/ourwork-1.png');">
+        <div class="ourwork-item relative" style="--bg-image: url('/images/ourwork-1.png');">
             <a href="#" class="ourwork-link"></a>
-            <div class="container flex flex-wrap md:gap-10 gap-5 items-start md:relative sticky md:top-0 top-[144px]">
+            <div class="container flex flex-wrap md:gap-10 gap-5 items-start  sticky top-[144px] ourwork-content-wrapper">
                 <h3 class="ourwork-title text-display lg:text-[70px] text-[50px] font-bold text-white">Faryngrove <span class="icon-arrow-up"></span></h3>
                 <div class="ourwork-content lg:max-w-[362px] ml-auto text-white leading-[1.4] lg:text-right">
                     <p>A fantastical open-world map set on an intricately designed floating island. Explore hidden easter eggs and captivating landmarks scattered throughout this immersive environment, crafted exclusively for Fortnite players.</p>
@@ -43,3 +43,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </div>
 </Layout>
+<script src="./vendor/gsap/gsap.min.js" defer></script>
+<script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="./vendor/gsap/scrollSmoother.min.js" defer></script>
+<script src="./js/pages/ourWork.js" defer></script>

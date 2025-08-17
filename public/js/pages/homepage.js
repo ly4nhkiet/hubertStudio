@@ -505,6 +505,16 @@ function projectCarousel() {
         items: 2,
       },
     }
+  })
+
+  // get offset left and right from document
+  $(window).on('load resize', function() {
+    const owlNavOverlay = $('.project-carousel');
+    const owlNavOverlayLeft = document.documentElement.scrollLeft + owlNavOverlay.offset().left;
+    console.log(owlNavOverlayLeft);
+    $('body').css('--offset', owlNavOverlayLeft + 'px');
+    // $('.project-carousel .owl-stage').css('padding-left', owlNavOverlayLeft + 'px');
+    // $('.project-carousel .owl-stage').css('padding-right', owlNavOverlayRight + 'px');
   });
   
 }

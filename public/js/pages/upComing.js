@@ -9,6 +9,11 @@ function upComing() {
     if($("#sequence-canvas").attr("data-speed")) {
         speed = parseFloat($("#sequence-canvas").attr("data-speed"));
     }
+
+    // Update active class based on current speed
+    $('.speed-control').removeClass('active');
+    $(`.speed-control[data-speed="${speed}"]`).addClass('active');
+    
     const canvas = document.getElementById("sequence-canvas");
     const context = canvas.getContext("2d");
   

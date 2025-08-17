@@ -115,7 +115,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                     <img src="/images/console-neon-1.png" alt="console neon" class="mx-auto lg:mx-0 lg:max-w-full max-w-[80%]">
                 </div>
                 <div class="flex-1">
-                    <h3 class="heading-title font-sans text-white text-[50px] leading-none" data-animation="fade-up" data-delay="0.2">
+                    <h3 class="heading-title font-sans text-white text-[50px] leading-none !pl-0" data-animation="fade-up" data-delay="0.2">
                         Our work is guided by four principles that keep it <span class="text-[#BADF01]">playful</span>, <span class="text-[#BADF01]">purposeful</span>, and <span class="text-[#BADF01]">powerful</span>
                     </h3>
                     <ul class="list-hubert-s4">
@@ -184,57 +184,60 @@ import WorldWork from '../components/sections/worldWork.astro';
                     <img src="/images/game-cartridge.png" alt="game cartridge">
                 </div>
             </div>
-            <div class="mt-7 owl-carousel project-carousel" data-animation="fadeIn-up">
-                <div class="card-item">
-                    <div class="card-img">
-                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
-                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
-                        </a>
+            <div class="mt-7 project-carousel-wrapper" data-animation="fadeIn-up">
+                <div class="owl-overlay"></div>
+                <div class="project-carousel owl-carousel">
+                    <div class="card-item">
+                        <div class="card-img">
+                            <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                                <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                            </a>
+                        </div>
+                        <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
+                            <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                            <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                                VIEW
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
-                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
-                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
-                            VIEW
-                        </a>
+                    <div class="card-item">
+                        <div class="card-img">
+                            <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                                <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                            </a>
+                        </div>
+                        <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
+                            <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                            <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                                VIEW
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="card-item">
-                    <div class="card-img">
-                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
-                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
-                        </a>
+                    <div class="card-item">
+                        <div class="card-img">
+                            <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                                <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                            </a>
+                        </div>
+                        <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
+                            <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                            <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                                VIEW
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
-                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
-                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
-                            VIEW
-                        </a>
-                    </div>
-                </div>
-                <div class="card-item">
-                    <div class="card-img">
-                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
-                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
-                        </a>
-                    </div>
-                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-t flex items-center">
-                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
-                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
-                            VIEW
-                        </a>
-                    </div>
-                </div>
-                <div class="card-item">
-                    <div class="card-img">
-                        <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
-                            <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
-                        </a>
-                    </div>
-                    <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t flex items-center">
-                        <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
-                        <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
-                            VIEW
-                        </a>
+                    <div class="card-item">
+                        <div class="card-img">
+                            <a href="#" class="block before:block relative before:content-[''] before:pt-[61%]">
+                                <img src="/images/project-1.png" alt="project 1" class="w-full h-full object-cover absolute top-0 left-0">
+                            </a>
+                        </div>
+                        <div class="card-content relative pl-3 pt-4 pb-6 mt-5 border-[#373737] border-b border-t flex items-center">
+                            <a class="text-white text-[32px] font-display leading-none block  overflow-hidden text-ellipsis line-clamp-2 min-h-[50px]">Faryngrove</a>
+                            <a class="card-link text-[#000] ml-auto w-full max-w-[124px] flex items-center justify-center bg-[#BADF01] rounded-[100px] font-text text-[10px] underline underline-offset-[3px] h-[29px]" href="#">
+                                VIEW
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
