@@ -41,6 +41,8 @@
 gsap.registerPlugin(ScrollTrigger);
 
 function worldWork() {
+  const md = new MobileDetect(window.navigator.userAgent);
+  console.log(md)
   let scrollTriggerInstance = null;
   const frameCount = 250;
   const images = [];
@@ -129,7 +131,7 @@ function worldWork() {
     render();
     requestAnimationFrame(animate);
   }
-
+ 
   // ScrollTrigger cho text + overlay
   function createScrollAnimation() {
     if (scrollTriggerInstance) scrollTriggerInstance.kill();
@@ -196,12 +198,16 @@ function worldWork() {
     resizeCanvas();
     animate();
   };
-
-  createScrollAnimation();
+  if(!md.mobile() || !md.tablet()) {
+    createScrollAnimation();
+  }
+ 
 
   window.addEventListener("resize", () => {
     resizeCanvas();
-    createScrollAnimation();
+    if(!md.mobile() || !md.tablet()) {
+      createScrollAnimation();
+    }
     ScrollTrigger.refresh();
   });
 }
@@ -399,46 +405,50 @@ function debounce(func, wait) {
   };
 }
 function animateQuoteScroll() {
-  ScrollTrigger.matchMedia({
-    "(min-width: 768px)": function () {
-      const vh = document.documentElement.clientHeight;
-      const lines = gsap.utils.toArray(".abt-quote h3");
-      const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".abt-quote",
-          start: "top top",
-          end: "+=" + vh * 3,
-          scrub: 2,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          // markers: true,
+  var md = new MobileDetect(window.navigator.userAgent);
+  if(!md.mobile() || !md.tablet()) {
+    ScrollTrigger.matchMedia({
+      "(min-width: 1024px)": function () {
+        const vh = document.documentElement.clientHeight;
+        const lines = gsap.utils.toArray(".abt-quote h3");
+        const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
+  
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".abt-quote",
+            start: "top top",
+            end: "+=" + vh * 3,
+            scrub: 2,
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            // markers: true,
+          }
+        });
+  
+        lines.forEach((line, i) => {
+          tl.from(line, {
+            y: 80,
+            autoAlpha: 0,
+            duration: 0.8,
+            ease: "power2.in"
+          }, i);
+        });
+  
+        if (finalSection) {
+          tl.from(finalSection, {
+            y: 80,
+            autoAlpha: 0,
+            duration: 0.8,
+            ease: "power2.in"
+          }, lines.length);
+  
+          tl.to({}, { duration: 1 });
         }
-      });
-
-      lines.forEach((line, i) => {
-        tl.from(line, {
-          y: 80,
-          autoAlpha: 0,
-          duration: 0.8,
-          ease: "power2.in"
-        }, i);
-      });
-
-      if (finalSection) {
-        tl.from(finalSection, {
-          y: 80,
-          autoAlpha: 0,
-          duration: 0.8,
-          ease: "power2.in"
-        }, lines.length);
-
-        tl.to({}, { duration: 1 });
       }
-    }
-  });
+    });
+  }
+ 
 }
 function animationFadeIn() {
   document.querySelectorAll("[data-animation]").forEach((el) => {
@@ -517,6 +527,10 @@ function projectCarousel() {
 
 $(document).ready(function() {
     // world work
+    var md = new MobileDetect(window.navigator.userAgent);
+    if(md.mobile()) {
+      $('body').addClass('mobile');
+    }
     worldWork();
     marquee();
     testimonial();

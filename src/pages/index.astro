@@ -10,6 +10,9 @@ import WorldWork from '../components/sections/worldWork.astro';
             <div class="container relative z-10">
                 <div class=" xl:text-5xl text-3xl font-medium text-white gap-2 min-h-[50vh] flex md:pt-[15vh] items-start hubert-s2-text" data-animation="fade-up">
                     <div class="grid grid-cols-1 w-full">
+                        <div class="col-span-1 d-none text-mobile">
+                            <p class="animate-text-about-us">Born from the love of gaming, powered by creative minds, gaming hearts, and brand brains.</p>
+                        </div>
                         <div class="col-span-1 text-right">
                             <p class="animate-text-about-us"> Born from the love of gaming, powered by </p>
                         </div>
@@ -44,7 +47,10 @@ import WorldWork from '../components/sections/worldWork.astro';
    
     <section class="md:pt-28 md:pb-16 py-24 abt-quote flex items-center justify-center">
         <div class="container">
-            <div class="grid grid-cols-1 text-center font-anton 2xl:text-[140px]  xl:text-[130px] lg:text-[90px] md:text-[70px] text-[50px] leading-[0] relative ">
+            <div class="md:max-w-[80px] hidden abt-quote-img">
+                <img src="/images/smile-icon.svg" alt="smile icon" class="mx-auto md:mx-0">
+           </div>
+            <div class="abt-quote-item grid grid-cols-1 text-center font-anton 2xl:text-[140px]  xl:text-[130px] lg:text-[90px] md:text-[70px] text-[50px] leading-[0] relative ">
                 <div class="backdrop">
                 </div>
                 <div class="col-span-1 relative z-10">
@@ -95,7 +101,7 @@ import WorldWork from '../components/sections/worldWork.astro';
                         Now see what it looks like in action.
                     </p>
                </div>
-               <div class="md:max-w-[80px] col-span-1">
+               <div class="md:max-w-[80px] col-span-1 abt-quote-img-desktop">
                     <img src="/images/smile-icon.svg" alt="smile icon" class="mx-auto md:mx-0">
                </div>
                <div class="md:max-w-[250px] w-full col-span-1">
@@ -111,7 +117,7 @@ import WorldWork from '../components/sections/worldWork.astro';
     <section class="hubert-s4">
         <div class="container">
             <div class="flex lg:flex-nowrap flex-wrap">
-                <div class="lg:max-w-[584px] w-full text-center lg:text-left lg:pr-7" data-animation="fade-up">
+                <div class="lg:max-w-[584px] w-full text-center lg:text-left lg:pr-7 hubert-s4-img" data-animation="fade-up">
                     <img src="/images/console-neon-1.png" alt="console neon" class="mx-auto lg:mx-0 lg:max-w-full max-w-[80%]">
                 </div>
                 <div class="flex-1">

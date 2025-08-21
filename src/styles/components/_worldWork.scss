@@ -95,3 +95,227 @@
     }
 }
 
+html {
+    overflow-x: hidden;
+}
+
+.mobile {
+    .world-work {
+        background-image: url('/images/backdrop-mobile.png');
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+        padding-bottom: 0;
+        &:before {
+            display: none;
+        }
+        .inside {
+            z-index: 4;
+            .world-world-horizontal,
+            .backdrop {
+                display: none;
+            }
+            .world-vertical {
+                display: block;
+                margin-bottom: 30px;
+            }
+            .sequence-wrapper {
+                max-width: 70%;
+                left: 50%;
+                top: 5%;
+                transform: translate(-50%, 0);
+            }
+        }
+        .container{
+            padding-bottom: 40px;
+            position: relative;
+            &:before {
+                content: "";
+                position: absolute;
+                display: block;
+                height: 130%;
+                width: 100%;
+                left: 0;
+                top: -30%;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 30%);
+                z-index: 2;
+            }
+            > div {
+                position: relative;
+                z-index: 3;
+            }
+        }
+    }
+    .hubert-about-us {
+        padding: 0;
+        z-index: 12;
+        overflow: visible;
+        &:before {
+            display: none;
+        }
+        .hubert-s2-text {
+            padding-top: 50px;
+            padding-bottom: 40px;
+            margin: 0 -16px;
+            width: calc(100% + 32px);
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url(/images/patent.png);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+                min-height: auto;
+               * {
+                text-align: center;
+               }
+            .text-mobile {
+                display: block;
+                text-align: center;
+                padding-top: 50px;
+                padding-bottom: 100px;
+                position: relative;
+                z-index: 1;
+            }
+            .col-span-1:not(.text-mobile) {
+                display: none;
+            }
+        }
+        .hubert-s2-box {
+            z-index: 4;
+            > div {
+                transform: none;
+            }
+        }
+        .box-img {
+            margin: 0 -16px;
+            width: calc(100% + 32px);
+            position: relative;
+            &::before {
+                content: "";
+                display: block;
+                padding-top: 58%;
+            }
+            img {
+                margin: 0;
+                width: 160%;
+                max-width: 160%;
+                position: absolute;
+                top: -20%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .box-content {
+            bottom: 0;
+            left: 50%;
+            top: inherit;
+            position: absolute;
+            transform: translate(-50%, 50%);
+            max-width: 90% !important;
+        }
+    }
+    .abt-quote {
+        padding-top: 150px;
+        .abt-quote-item  {
+            padding: 60px 0 60px;
+        }
+        .abt-quote-title .text {
+            font-size: 55px;
+        }
+        .backdrop {
+            background-size: cover;
+            height: 100%;
+        }
+        .abt-quote-img {
+            max-width: 100%;
+            img {
+                max-width: 70px;
+                transform: translate(0, 40px);
+                margin: 0 auto;
+            }
+            display: block;
+        }
+        .abt-quote-sub {
+            margin-top: 16px;
+        }
+        .abt-quote-img-desktop {
+            display: none;
+        }
+    }
+    .hubert-s4 {
+        padding: 80px 0;
+        min-height: auto;
+        .hubert-s4-img {
+            display: none;
+        }
+        .list-hubert-s4 {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            @media (max-width: 600px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            li {
+                padding: 16px;
+                background-color: #BADF01;
+                flex-wrap: wrap;
+                display: block;
+                &:before {
+                    position: absolute;
+                    filter: brightness(0) invert(1);
+                    width: 40px !important;
+                    background-size: contain;
+                    height: 50px !important;
+                }
+                h4 {
+                    min-height: 50px;
+                    text-align: right;
+                    padding-left: 80px;
+                }
+                h4,
+                p {
+                    color: #000;
+                }
+                .inside-box {
+                    max-width: 100%;
+                    flex: 0 0 100%;
+                }
+            }
+           
+        }
+    }
+    .footer {
+        .sharp-nitendo-console {
+            display: none;
+        }
+        .top-footer {
+            &:before {
+                background-image: url('/images/footer-img.png');
+                opacity: 1;
+                width: 100%;
+                padding-top: 69.231%;
+            }
+            &:after {
+                display: none;
+            }
+        }
+        .bottom-footer {
+            padding-top: 40px;
+            gap: 24px;
+            h3 {
+                color: #fff;
+            }
+            .copyright {
+                p {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
