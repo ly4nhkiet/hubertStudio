@@ -25,9 +25,9 @@ module.exports = {
 				'gradient-banner': 'linear-gradient(180deg, rgba(33, 37, 41, 0.00) 0%, rgba(33, 37, 41, 0.75) 54%, rgba(33, 37, 41, 0.94) 77.09%, #212529 100%)'
 			},
 			fontFamily: {
-				'sans': ['HelveticaNowDisplay', 'sans-serif'],
-				'micro': ['HelveticaNowMicro', 'sans-serif'],
-				'text': ['HelveticaNowText', 'sans-serif'],
+				'sans': ['Be Vietnam Pro', 'sans-serif'],
+				'micro': ['Be Vietnam Pro', 'sans-serif'],
+				'text': ['Be Vietnam Pro', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
 				'anton': ['Anton', 'sans-serif'],
 				'book': ['SharpGroteskPE', 'sans-serif'],

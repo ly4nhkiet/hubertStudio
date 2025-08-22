@@ -5,7 +5,7 @@
 @import './components/career.scss';
 body {
     background-color: #000;
-    font-family: 'HelveticaNowDisplay', sans-serif;
+    font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 1rem;
     margin: 0;
     padding: 0;
@@ -255,14 +255,14 @@ section {
 
     .marquee-content {
         display: inline-flex;
-        font-family: 'SharpGroteskPE', sans-serif;
-        font-size: 41.858px;
-        font-style: italic;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-size: 26px;
+        font-style: normal;
         text-transform: uppercase;
         animation: none;
         white-space: nowrap;
         color: #000;
-        font-weight: 600;
+        font-weight: 400;
         @media (max-width: 768px) {
             font-size: 24px;
         }

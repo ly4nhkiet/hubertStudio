@@ -40,6 +40,9 @@
         }
         .navigation-item {
            > a.navigation-link {
+                @apply font-be;
+                font-weight: 500;
+                font-size: 15px;
                 &:after {
                     content: '';
                     display: block;
@@ -51,6 +54,7 @@
                     left: 50%;
                     transform: translateX(-50%);
                     transition: width 0.3s ease-in-out;
+                    
                 }
                 &:hover,
                 &.current-page {

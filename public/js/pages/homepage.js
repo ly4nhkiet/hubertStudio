@@ -135,61 +135,35 @@ function worldWork() {
   // ScrollTrigger cho text + overlay
   function createScrollAnimation() {
     if (scrollTriggerInstance) scrollTriggerInstance.kill();
-
+  
     const text = document.querySelector(".world-world-horizontal img");
     const overlay = document.querySelector(".reveal-overlay");
     if (!text || !overlay) return;
-
-    const distance = text.scrollWidth;
-    const endDistance = "+=" + window.innerHeight * 3;
-
-    const tl = gsap.timeline();
-    tl.to(text, {
-      x: -distance,
-      ease: "linear",
-      duration: 2,
-    }).fromTo(
-      overlay,
-      { yPercent: 100 },
-      { yPercent: 0, ease: "none", duration: 1 },
-      ">+=0.2" // bắt đầu ngay sau text chạy
-    );
-
+  
+    gsap.set(text, { x: 0 });
+    const rect = text.getBoundingClientRect();
+    const distance = rect.width - (window.innerWidth / 2);
+  
+    const tl = gsap.timeline({ defaults: { ease: "none" } });
+    tl.to(text, { x: -distance })
     scrollTriggerInstance = ScrollTrigger.create({
       animation: tl,
       trigger: ".world-work",
       start: "top top",
-      end: endDistance,
+      end: () => "+=" + distance,   // end đúng thời điểm chữ Y biến mất hoàn toàn
       scrub: true,
       pin: true,
+      pinSpacing: true,              // bật lại để không bị overlap
+      invalidateOnRefresh: true,     // tính lại khi resize/refresh
       anticipatePin: 1,
-      markers: true, // để debug
-      onEnter: () => {
-        isInsideWorldWork = true;
-        lastAnimationScrollY = window.scrollY;
-        $('.nav-trigger').removeClass('active');
-        $('.header').addClass('on-enter');
-      },
-      onEnterBack: () => {
-        isInsideWorldWork = true;
-        lastAnimationScrollY = window.scrollY;
-        $('.nav-trigger').removeClass('active');
-        $('.header').addClass('on-enter');
-      },
-      onLeave: () => {
-        isInsideWorldWork = false;
-        currentSpeed = speed;
-        $('.nav-trigger').addClass('active');
-        $('.header').removeClass('on-enter');
-      },
-      onLeaveBack: () => {
-        isInsideWorldWork = false;
-        currentSpeed = speed;
-        $('.nav-trigger').addClass('active');
-        $('.header').removeClass('on-enter');
-      },
+      // markers: true,
+      onEnter: () => { isInsideWorldWork = true; lastAnimationScrollY = window.scrollY; $('.nav-trigger').removeClass('active'); $('.header').addClass('on-enter'); },
+      onEnterBack: () => { isInsideWorldWork = true; lastAnimationScrollY = window.scrollY; $('.nav-trigger').removeClass('active'); $('.header').addClass('on-enter'); },
+      onLeave: () => { isInsideWorldWork = false; currentSpeed = speed; $('.nav-trigger').addClass('active'); $('.header').removeClass('on-enter'); },
+      onLeaveBack: () => { isInsideWorldWork = false; currentSpeed = speed; $('.nav-trigger').addClass('active'); $('.header').removeClass('on-enter'); },
     });
   }
+  
 
   // Init
   loadImages();
@@ -406,17 +380,20 @@ function debounce(func, wait) {
 }
 function animateQuoteScroll() {
   var md = new MobileDetect(window.navigator.userAgent);
-  if(!md.mobile() || !md.tablet()) {
+
+  // Desktop (PC)
+  if (!md.mobile() && !md.tablet()) {
     ScrollTrigger.matchMedia({
       "(min-width: 1024px)": function () {
         const vh = document.documentElement.clientHeight;
         const lines = gsap.utils.toArray(".abt-quote h3");
         const finalSection = document.querySelector(".abt-quote .abt-quote-sub");
-  
+
+        // Pin toàn section từ đầu
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".abt-quote",
-            start: "top top",
+            start: "top top",   // pin ổn định
             end: "+=" + vh * 3,
             scrub: 2,
             pin: true,
@@ -425,30 +402,69 @@ function animateQuoteScroll() {
             // markers: true,
           }
         });
-  
-        lines.forEach((line, i) => {
-          tl.from(line, {
-            y: 80,
-            autoAlpha: 0,
-            duration: 0.8,
-            ease: "power2.in"
-          }, i);
+
+        // set trạng thái ban đầu cho tất cả
+        lines.forEach(line => gsap.set(line, { y: 80, autoAlpha: 0 }));
+        if (finalSection) gsap.set(finalSection, { y: 80, autoAlpha: 0 });
+
+        // tạo trigger riêng cho line đầu tiên -> xuất hiện khi section vào 50%
+        ScrollTrigger.create({
+          trigger: ".abt-quote",
+          start: "top 50%",
+          once: true,
+          onEnter: () => {
+            gsap.to(lines[0], {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.8,
+              ease: "power2.out"
+            });
+          }
         });
-  
-        if (finalSection) {
-          tl.from(finalSection, {
-            y: 80,
-            autoAlpha: 0,
+
+        // timeline chính (bỏ line đầu tiên đi vì đã xử lý riêng)
+        lines.slice(1).forEach((line, i) => {
+          tl.to(line, {
+            y: 0,
+            autoAlpha: 1,
             duration: 0.8,
-            ease: "power2.in"
+            ease: "power2.out"
+          }, i + 1);
+        });
+
+        if (finalSection) {
+          tl.to(finalSection, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.8,
+            ease: "power2.out"
           }, lines.length);
-  
+
           tl.to({}, { duration: 1 });
         }
       }
     });
   }
- 
+  // Mobile / Tablet
+  else {
+    const items = gsap.utils.toArray(".abt-quote h3, .abt-quote .abt-quote-sub");
+    items.forEach(item => {
+      gsap.set(item, { y: 50, autoAlpha: 0 });
+      gsap.to(item, {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: item,
+          start: "top 90%",
+          toggleActions: "play none none none",
+          once: true,
+          // markers: true,
+        }
+      });
+    });
+  }
 }
 function animationFadeIn() {
   document.querySelectorAll("[data-animation]").forEach((el) => {
